@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{527133D3-075E-4212-9819-BD725D6FD055}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Duk.EPiServer.Disqus.UI</RootNamespace>
+    <AssemblyName>Duk.EPiServer.Disqus.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPiServer">
+      <HintPath>..\msbuild\Dependencies\EPiServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.BaseLibrary">
+      <HintPath>..\msbuild\Dependencies\EPiServer.BaseLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Data">
+      <HintPath>..\msbuild\Dependencies\EPiServer.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Framework">
+      <HintPath>..\msbuild\Dependencies\EPiServer.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Packaging">
+      <HintPath>..\msbuild\Dependencies\EPiServer.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Shell">
+      <HintPath>..\msbuild\Dependencies\EPiServer.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\msbuild\Dependencies\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CompositeViews\DisqusView.cs" />
+    <Compile Include="Controllers\ConfigurationDataStore.cs" />
+    <Compile Include="Controllers\AreaConfigurationDataStore.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Models\RenderingEditModeExtension.cs" />
+    <Compile Include="Models\ConfigurationModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Duk.EPiServer.Disqus\Duk.EPiServer.Disqus.csproj">
+      <Project>{89E4D034-4096-424D-BF05-29F1A057E83D}</Project>
+      <Name>Duk.EPiServer.Disqus</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Duk.EPiServer.Disqus.UI.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ClientResources\AreaSettings.js" />
+    <Content Include="ClientResources\AreaSettingsSection.js" />
+    <Content Include="ClientResources\Admin.js" />
+    <Content Include="ClientResources\AdminSection.js" />
+    <Content Include="ClientResources\EditMode.css" />
+    <Content Include="ClientResources\GeneralSettingsSection.js" />
+    <Content Include="ClientResources\GeneralSettingsViewModel.js" />
+    <Content Include="ClientResources\AreaSettingsViewModel.js" />
+    <Content Include="ClientResources\main.js" />
+    <Content Include="ClientResources\nls\Settings.js" />
+    <Content Include="ClientResources\nls\sv\Settings.js" />
+    <Content Include="ClientResources\NotificationList.js" />
+    <Content Include="ClientResources\Settings.css" />
+    <Content Include="ClientResources\SettingsSection.js" />
+    <Content Include="ClientResources\templates\AreaSettings.htm" />
+    <Content Include="ClientResources\templates\Admin.htm" />
+    <Content Include="ClientResources\templates\SettingsSection.htm" />
+    <Content Include="ClientResources\_OperationNotifier.js" />
+    <EmbeddedResource Include="EmbeddedLangFiles\DisqusUI_sv.xml" />
+    <Content Include="module.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="web.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientResources\DisqusInitializer.js" />
+    <Content Include="ClientResources\RootContainer.js" />
+    <Content Include="ClientResources\GeneralSettings.js" />
+    <Content Include="ClientResources\templates\GeneralSettings.htm" />
+    <EmbeddedResource Include="EmbeddedLangFiles\DisqusUI_en.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="CreateAddOnPackage">
+    <PropertyGroup>
+      <NuGetExePath>..\msbuild\Tools\NuGet.exe</NuGetExePath>
+    </PropertyGroup>
+    <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -OutputDirectory $(ProjectDir)..\packages" Condition="Exists('$(NuGetExePath)')" />
+  </Target>
+  <Target Name="CopyOnTestSites">
+    <PropertyGroup>
+      <CopyCommandFilePath>..\msbuild\Tools\CopyOnSite.cmd</CopyCommandFilePath>
+    </PropertyGroup>
+    <Exec Command="&quot;$(CopyCommandFilePath)&quot;" Condition="Exists('$(CopyCommandFilePath)')" />
+  </Target>
+  <Target Name="AfterBuild">
+    <CallTarget Targets="CreateAddOnPackage" />
+    <CallTarget Targets="CopyOnTestSites" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

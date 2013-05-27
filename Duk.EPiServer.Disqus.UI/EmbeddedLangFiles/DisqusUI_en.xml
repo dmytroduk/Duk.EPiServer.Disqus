@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+  <language name="English" id="en">
+    <disqus>
+      <ui>
+        <navigationtitle>Disqus</navigationtitle>
+        <rendering>
+          <notconfiguredmessage>It looks like the Disqus comments add-on is not configured properly.</notconfiguredmessage>
+          <configurationlinkmessage>Please go to the Disqus settings to complete the configuration.</configurationlinkmessage>
+          <severalthreadsonpage>Unable to render the Disqus comments thread. Probably there are several comments threads placed on this page.</severalthreadsonpage>
+        </rendering>
+      </ui>
+    </disqus>
+  </language>
+</languages>

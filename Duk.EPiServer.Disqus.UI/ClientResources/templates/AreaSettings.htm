@@ -1,0 +1,12 @@
+﻿<div class="epi-containerLayout clearfix">
+    <ul>
+        <li class="epi-formsRow">
+            <label for="shortName">${!i18n.renderingAreasTitle}</label>
+            <textarea data-dojo-attach-point="_areaList" data-dojo-type="dijit.form.Textarea"
+                style="width: 300px;" type="text" rows="4" cols="50" trim="true"></textarea>
+        </li>
+    </ul>
+    <button data-dojo-type="dijit.form.Button" title="${!i18n.saveTitle}" type="button"
+        data-dojo-attach-event="onClick:_saveClick" data-dojo-attach-point="_saveButton">
+        ${!i18n.saveTitle}</button>
+</div>

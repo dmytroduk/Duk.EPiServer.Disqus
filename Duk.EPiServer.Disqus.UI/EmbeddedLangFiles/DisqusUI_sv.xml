@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+  <language name="Svenska" id="sv">
+    <disqus>
+      <ui>
+        <navigationtitle>Disqus</navigationtitle>
+        <rendering>
+          <notconfiguredmessage>Det ser ut att Disqus kommentarer tillägget är inte korrekt konfigurerad.</notconfiguredmessage>
+          <configurationlinkmessage>Vänligen gå till Disqus inställningar för att slutföra konfigurationen.</configurationlinkmessage>
+          <severalthreadsonpage>Kunde inte render Disqus kommentarer tråden. Förmodligen finns det flera kommentarer trådar placeras på denna sida.</severalthreadsonpage>
+        </rendering>
+      </ui>
+    </disqus>
+  </language>
+</languages>

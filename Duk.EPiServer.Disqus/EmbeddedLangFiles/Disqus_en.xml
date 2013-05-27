@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+  <language name="English" id="en">
+    
+    <blocktypes>
+      <!-- Disqus comments thread block -->
+      <blocktype  name="CommentsBlock">
+        <name>Disqus comments</name>
+        <description>Allows to add Disqus comments on a page.</description>
+      </blocktype>
+    </blocktypes>
+
+    <disqus>
+
+      <dynamiccontent>
+        <displayname>Disqus comments</displayname>
+        <description>Allows to add Disqus comments on a page.</description>
+      </dynamiccontent>
+
+    </disqus>
+  </language>
+</languages>

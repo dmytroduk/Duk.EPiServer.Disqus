@@ -1,0 +1,24 @@
+﻿<div class="epi-containerLayout clearfix">
+    <ul>
+        <li class="epi-formsRow">
+            <label for="shortName">${!i18n.shortNameTitle}</label>
+            <input id="shortName" name="shortName" data-dojo-type="dijit.form.ValidationTextBox"
+                   data-dojo-props="regExp:'[A-Za-z0-9-_]+', required:true, invalidMessage:'${!i18n.shortNameInvalidMessage}'"
+                   data-dojo-attach-point="_shortNameControl" />
+        </li>
+        <li class="epi-formsRow">
+            <label for="developerMode">${!i18n.enableDeveloperModeTitle}</label>
+            <input id="developerMode" name="developerMode" data-dojo-type="dijit.form.CheckBox"
+                   value="true" data-dojo-attach-point="_developerModeControl" />
+        </li>
+        <li class="epi-formsRow">
+            <label for="showPoweredByNotice">${!i18n.showPoweredByTitle}</label>
+            <input id="showPoweredByNotice" name="showPoweredByNotice" data-dojo-type="dijit.form.CheckBox"
+                   value="true" data-dojo-attach-point="_showPoweredByNoticeControl" />
+        </li>
+    </ul>
+    <button id="submitGeneralButton" data-dojo-type="dijit.form.Button" title="${!i18n.saveTitle}" type="button"
+            data-dojo-attach-event="onClick:_saveClick" data-dojo-attach-point="_saveButton">
+        ${!i18n.saveTitle}</button>
+    <br/>
+</div>

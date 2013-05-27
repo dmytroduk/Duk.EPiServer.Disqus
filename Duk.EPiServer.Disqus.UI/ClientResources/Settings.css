@@ -1,0 +1,17 @@
+﻿.duk-disqus-settingsSection {
+    min-width: 550px;
+}
+
+.duk-disqus-description {
+    padding: 0 12px 10px 12px;
+}
+
+.duk-disqus-messageList {
+    padding: 10px 12px 10px 12px;
+    background-color: #fffaf0;
+    border: 1px solid transparent;
+}
+
+.duk-disqus-adminLinksList {
+    display: inline-block;
+}

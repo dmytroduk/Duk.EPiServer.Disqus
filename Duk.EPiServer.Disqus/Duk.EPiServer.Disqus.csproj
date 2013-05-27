@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{89E4D034-4096-424D-BF05-29F1A057E83D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Duk.EPiServer.Disqus</RootNamespace>
+    <AssemblyName>Duk.EPiServer.Disqus</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPiServer">
+      <HintPath>..\msbuild\Dependencies\EPiServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.BaseLibrary">
+      <HintPath>..\msbuild\Dependencies\EPiServer.BaseLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Data">
+      <HintPath>..\msbuild\Dependencies\EPiServer.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Framework">
+      <HintPath>..\msbuild\Dependencies\EPiServer.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Packaging">
+      <HintPath>..\msbuild\Dependencies\EPiServer.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="EPiServer.Shell">
+      <HintPath>..\msbuild\Dependencies\EPiServer.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\msbuild\Dependencies\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Configuration\Configuration.cs" />
+    <Compile Include="Models\Configuration\ConfigurationEntity.cs" />
+    <Compile Include="Models\Configuration\DatabaseConfigurationProvider.cs" />
+    <Compile Include="Models\Context\ContentContext.cs" />
+    <Compile Include="Models\Context\ContentContextProvider.cs" />
+    <Compile Include="Controllers\CommentsBlockController.cs" />
+    <Compile Include="Initializer.cs" />
+    <Compile Include="Models\ClientResourceRegister.cs" />
+    <Compile Include="Models\CommentsBlock.cs" />
+    <Compile Include="CommentsControl.cs" />
+    <Compile Include="CommentsDynamicContent.cs" />
+    <Compile Include="Models\ICodeBuilder.cs" />
+    <Compile Include="Models\Configuration\IConfigurationProvider.cs" />
+    <Compile Include="Models\Context\IContext.cs" />
+    <Compile Include="Models\Configuration\IConfiguration.cs" />
+    <Compile Include="Models\Context\IContextProvider.cs" />
+    <Compile Include="Models\IRenderingEditModeExtension.cs" />
+    <Compile Include="Models\RenderingService.cs" />
+    <Compile Include="Models\RenderingModel.cs" />
+    <Compile Include="Models\IRenderingService.cs" />
+    <Compile Include="Models\ModuleImageUrlAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\CodeBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientResources\DisqusBlockIcon.png" />
+    <None Include="Duk.EPiServer.Disqus.nuspec">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="EmbeddedLangFiles\Disqus_en.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmbeddedLangFiles\Disqus_sv.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="module.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="CreateAddOnPackage">
+    <PropertyGroup>
+      <NuGetExePath>..\msbuild\Tools\NuGet.exe</NuGetExePath>
+    </PropertyGroup>
+    <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -OutputDirectory $(ProjectDir)..\packages" Condition="Exists('$(NuGetExePath)')" />
+  </Target>
+  <Target Name="CopyOnTestSites">
+    <PropertyGroup>
+      <CopyCommandFilePath>..\msbuild\Tools\CopyOnSite.cmd</CopyCommandFilePath>
+    </PropertyGroup>
+    <Exec Command="&quot;$(CopyCommandFilePath)&quot;" Condition="Exists('$(CopyCommandFilePath)')" />
+  </Target>
+  <Target Name="AfterBuild">
+    <CallTarget Targets="CreateAddOnPackage" />
+    <CallTarget Targets="CopyOnTestSites" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

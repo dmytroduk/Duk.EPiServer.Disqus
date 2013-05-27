@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duk.EPiServer.Disqus", "Duk.EPiServer.Disqus\Duk.EPiServer.Disqus.csproj", "{89E4D034-4096-424D-BF05-29F1A057E83D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duk.EPiServer.Disqus.UI", "Duk.EPiServer.Disqus.UI\Duk.EPiServer.Disqus.UI.csproj", "{527133D3-075E-4212-9819-BD725D6FD055}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89E4D034-4096-424D-BF05-29F1A057E83D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E4D034-4096-424D-BF05-29F1A057E83D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E4D034-4096-424D-BF05-29F1A057E83D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E4D034-4096-424D-BF05-29F1A057E83D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{527133D3-075E-4212-9819-BD725D6FD055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527133D3-075E-4212-9819-BD725D6FD055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527133D3-075E-4212-9819-BD725D6FD055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527133D3-075E-4212-9819-BD725D6FD055}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

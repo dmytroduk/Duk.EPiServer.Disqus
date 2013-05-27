@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<languages>
+  <language name="Svenska" id="sv">
+    
+    <blocktypes>
+      <!-- Disqus comments thread block -->
+      <blocktype  name="CommentsBlock">
+        <name>Disqus kommentarer</name>
+        <description>Gör det möjligt att lägga Disqus kommentarer på en sida.</description>
+      </blocktype>
+    </blocktypes>
+
+    <disqus>
+
+      <dynamiccontent>
+        <displayname>Disqus kommentarer</displayname>
+        <description>Gör det möjligt att lägga Disqus kommentarer på en sida.</description>
+      </dynamiccontent>
+
+    </disqus>
+  </language>
+</languages>
