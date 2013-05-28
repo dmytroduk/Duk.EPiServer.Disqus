@@ -1,9 +1,7 @@
 ﻿define([
 // Dojo
-    "dojo",
     "dojo/_base/declare",
     "dojo/_base/lang",
-    "dojo/_base/Deferred",
     "dojo/dom-class",
     
    
@@ -25,7 +23,7 @@
 
 ], function (
 // Dojo
-    dojo, declare, lang, Deferred, domClass,
+    declare, lang, domClass,
     
 // Dijit
     _TemplatedMixin, _WidgetBase, _WidgetsInTemplateMixin, Textarea,
@@ -59,16 +57,19 @@
         }, 
        
         startup: function () {
+            if (this._started) {
+                return;
+            }
+
             this.inherited(arguments);
-            
+           
             this.onOperationStarted();
-            Deferred.when(this.model.load(), dojo.hitch(this, function () {
+            this.model.load().then(lang.hitch(this, function() {
                 this.connect(this._areaList, "onChange",
-                    function (value) { this._indicateUnsaved(value, this.model.renderingAreas); });
+                    function(value) { this._indicateUnsaved(value, this.model.renderingAreas); });
                 this._areaList.intermediateChanges = true;
                 this.onOperationCompleted();
-                }),
-            dojo.hitch(this, function (errors) {
+            }), lang.hitch(this, function(errors) {
                 this.onOperationFailed(errors);
             }));
 
@@ -77,15 +78,12 @@
         _saveClick: function () {
             this.model.set("renderingAreas", this._areaList.value);
             this.onOperationStarted();
-            Deferred.when(this.model.save(),
-                dojo.hitch(this, function () {
-                    this._indicateSaved();
-                    this.onOperationCompleted();
-                }),
-                dojo.hitch(this, function (errors) {
-                    this.onOperationFailed(errors);
-                }));
-
+            this.model.save().then(lang.hitch(this, function() {
+                this._indicateSaved();
+                this.onOperationCompleted();
+            }), lang.hitch(this, function(errors) {
+                this.onOperationFailed(errors);
+            }));
         },
         
         _indicateUnsaved: function (newValue, oldValue) {

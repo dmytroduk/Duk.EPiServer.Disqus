@@ -26,7 +26,6 @@ function (
         _currentSaveDeferred: null,
 
         constructor: function (params) {
-            // Add params
             lang.mixin(this, params);
         },
 
@@ -43,9 +42,7 @@ function (
             }
             this._currentLoadDeferred = new Deferred();
             this.dataStore.get().then(lang.hitch(this, function (areaList) {
-                if (areaList) {
-                    this.set("renderingAreas", this._toString(areaList));
-                }
+                this.set("renderingAreas", this._toString(areaList));
                 this._currentLoadDeferred.resolve();
                 this._currentLoadDeferred = null;
             }), lang.hitch(this, function (error) {
@@ -90,7 +87,7 @@ function (
         },
         
         _toString: function(areaList) {
-            return lang.isArray(areaList) ? areaList.join("\n") : null;
+            return (areaList && lang.isArray(areaList)) ? areaList.join("\n") : "";
         }
     });
 });
