@@ -4,11 +4,10 @@
 "dojo/dom-construct",
 "dojo/dom-style",
 
-"dijit",
 "dijit/_WidgetBase"],
 
 function (declare, array, domConstruct, domStyle,
-    dijit, _WidgetBase) {
+    _WidgetBase) {
 
     return declare("duk-disqus.NotificationList", [_WidgetBase], {
         // summary:
@@ -20,7 +19,9 @@ function (declare, array, domConstruct, domStyle,
         // tags:
         //    public
        
-        messageList: [],
+        // messageList: Array
+        //      The list of message to display
+        messageList: null,
         
         _messageListNode: null,
         
@@ -29,7 +30,7 @@ function (declare, array, domConstruct, domStyle,
             //    Creates root DOM nodes for rendering.
             //
             // tags:
-            //    public            
+            //    public    
             this.domNode = domConstruct.create("div");
             this._messageListNode = domConstruct.create("ul");
             domConstruct.place(this._messageListNode, this.domNode);
@@ -42,6 +43,9 @@ function (declare, array, domConstruct, domStyle,
             // tags:
             //    public            
             this.inherited(arguments);
+            if (!this.messageList) {
+                this.messageList = [];
+            }
             this.render();
         },
 
@@ -73,7 +77,6 @@ function (declare, array, domConstruct, domStyle,
             //
             // tags:
             //    public
-            
             if (messages) {
                 if (!(messages instanceof Array)) {
                     messages = [messages];
@@ -91,7 +94,6 @@ function (declare, array, domConstruct, domStyle,
             //
             // tags:
             //    public
-
             this.messageList = [];
             this.render();
         }
