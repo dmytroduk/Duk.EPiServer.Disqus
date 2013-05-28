@@ -46,7 +46,11 @@
         _setDescriptionAttr: { node: "_descriptionNode", type: "innerHTML" },
 
         startup: function () {
+            if (this._started) {
+                return;
+            }
             this.inherited(arguments);
+            
             if (this.settingsWidget) {
                 this.settingsWidget.placeAt(this._settingsContainer);
                 if (this.settingsWidget.isInstanceOf(_OperationNotifier)) {
@@ -56,7 +60,7 @@
                 this.settingsWidget.startup();
             }
         },
-
+     
         _subscribeToNotifications: function () {
             this.connect(this.settingsWidget, "onOperationStarted", function () {
                 this._standbyIndicator.show();

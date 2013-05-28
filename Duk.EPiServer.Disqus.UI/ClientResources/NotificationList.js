@@ -42,7 +42,11 @@ function (declare, array, domConstruct, domStyle,
             //
             // tags:
             //    public            
+            if (this._started) {
+                return;
+            }
             this.inherited(arguments);
+
             if (!this.messageList) {
                 this.messageList = [];
             }
