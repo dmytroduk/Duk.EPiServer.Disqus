@@ -39,8 +39,6 @@
 
         templateString: template,
         
-        model: null,
-
         settingsWidget: null,
 
         _setTitleAttr: { node: "_titleNode", type: "innerHTML" },
@@ -50,6 +48,7 @@
         startup: function () {
             this.inherited(arguments);
             if (this.settingsWidget) {
+                this.settingsWidget.placeAt(this._settingsContainer);
                 if (this.settingsWidget.isInstanceOf(_OperationNotifier)) {
                     this._standbyIndicator.target = this.settingsWidget.domNode;
                     this._subscribeToNotifications();

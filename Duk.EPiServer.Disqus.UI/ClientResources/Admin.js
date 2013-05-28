@@ -2,7 +2,6 @@
 // Dojo
     "dojo/_base/declare",
     "dojo/_base/lang",
-    "dojo/_base/Deferred",
 
 // Dijit
     "dijit/_WidgetBase",
@@ -21,7 +20,7 @@
 
 ], function (
 // Dojo
-    declare, lang, Deferred,
+    declare, lang,
     
 // Dijit
     _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin,
@@ -56,9 +55,6 @@
                 this._settingsLink.href = adminLinks.settings;
                 this._analyticsLink.href = adminLinks.analytics;
                 this._discussionsLink.href = adminLinks.discussions;
-
-                // TODO: remove debug output
-                console.debug(adminLinks);
             }
         },
 
@@ -66,7 +62,7 @@
             this.inherited(arguments);
 
             this.onOperationStarted();
-            Deferred.when(this.model.load(), lang.hitch(this, function () {
+            this.model.load().then(lang.hitch(this, function () {
                     this.onOperationCompleted();
                 }),
                 lang.hitch(this, function (errors) {
