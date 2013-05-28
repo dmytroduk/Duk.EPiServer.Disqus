@@ -13,7 +13,7 @@ function (
 
     return declare([Stateful, _StatefulGetterSetterMixin], {
         // summary:
-        // 		The view model for Disqus general settings widget
+        // 		The view model for General settings and Disqus Admin widgets
 
         // shortName: String
         //		The short name (Disqus ID)
@@ -26,11 +26,25 @@ function (
         // showPoweredByNotice: Boolean
         //		True when 'Powered by Disqus' notice should be displayed
         showPoweredByNotice: false,
-        
-        // adminLinks: Object
-        //      Links to Disqus Admin UI
-        adminLinks: null,
+      
+        // moderateAdminUrl: String
+        //      The URL of the comments moderation section in the Disqus Admin UI
+        moderateAdminUrl: null,
 
+        // settingsAdminUrl: String
+        //      The URL of the settings section in the Disqus Admin UI
+        settingsAdminUrl: null,
+
+        // analyticsAdminUrl: String
+        //      The URL of the analytics section in the Disqus Admin UI
+        analyticsAdminUrl: null,
+        
+        // discussionsAdminUrl: String
+        //      The URL of the migrate, import and export tools section in the Disqus Admin UI
+        discussionsAdminUrl: null,
+
+        // configurationStore: Object
+        //      Configuration data store
         configurationStore: null,
         
         _currentLoadDeferred: null,
@@ -60,7 +74,7 @@ function (
                     this.set("developerMode", configuration.developerMode);
                     this.set("showPoweredByNotice", configuration.showPoweredByNotice);
                 }
-                this.set("adminLinks", this._createAdminLinks());
+                this._createAdminLinks();
                 this._currentLoadDeferred.resolve();
                 this._currentLoadDeferred = null;
             }), lang.hitch(this, function (error) {
@@ -80,7 +94,7 @@ function (
                 developerMode: this.developerMode,
                 showPoweredByNotice: this.showPoweredByNotice
             }).then(lang.hitch(this, function() {
-                this.set("adminLinks", this._createAdminLinks());
+                this._createAdminLinks();
                 this._currentSaveDeferred.resolve();
                 this._currentSaveDeferred = null;
             }), lang.hitch(this, function (error) {
@@ -91,19 +105,17 @@ function (
         },
       
         _createAdminLinks: function () {
-            var links = {
-                moderate: "#",
-                settings: "#",
-                analytics: "#",
-                discussions: "#"
-            };
             if (this.shortName) {
-                links.moderate = "http://" + this.shortName + ".disqus.com/admin/moderate/";
-                links.settings = "http://" + this.shortName + ".disqus.com/admin/settings/";
-                links.analytics = "http://" + this.shortName + ".disqus.com/admin/analytics/";
-                links.discussions = "http://" + this.shortName + ".disqus.com/admin/discussions/";
+                this.set("moderateAdminUrl", "http://" + this.shortName + ".disqus.com/admin/moderate/");
+                this.set("settingsAdminUrl", "http://" + this.shortName + ".disqus.com/admin/settings/");
+                this.set("analyticsAdminUrl", "http://" + this.shortName + ".disqus.com/admin/analytics/");
+                this.set("discussionsAdminUrl", "http://" + this.shortName + ".disqus.com/admin/discussions/");
+            } else {
+                this.set("moderateAdminUrl", "#");
+                this.set("settingsAdminUrl", "#");
+                this.set("analyticsAdminUrl", "#");
+                this.set("discussionsAdminUrl", "#");
             }
-            return links;
         }
     });
 });

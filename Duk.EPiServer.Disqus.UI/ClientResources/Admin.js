@@ -46,18 +46,17 @@
         templateString: template,
 
         modelBindingMap: {
-            "adminLinks": ["adminLinks"]
+            "moderateAdminUrl": ["moderateAdminUrl"],
+            "settingsAdminUrl": ["settingsAdminUrl"],
+            "analyticsAdminUrl": ["analyticsAdminUrl"],
+            "discussionsAdminUrl": ["discussionsAdminUrl"]
         },
-
-        _setAdminLinksAttr: function (adminLinks) {
-            if (adminLinks) {
-                this._moderateLink.href = adminLinks.moderate;
-                this._settingsLink.href = adminLinks.settings;
-                this._analyticsLink.href = adminLinks.analytics;
-                this._discussionsLink.href = adminLinks.discussions;
-            }
-        },
-
+        
+        _setModerateAdminUrlAttr: { node: "_moderateLink", attribute: "href" },
+        _setSettingsAdminUrlAttr: { node: "_settingsLink", attribute: "href" },
+        _setAnalyticsAdminUrlAttr: { node: "_analyticsLink", attribute: "href" },
+        _setDiscussionsAdminUrlAttr: { node: "_discussionsLink", attribute: "href" },
+        
         startup: function () {
             this.inherited(arguments);
 
