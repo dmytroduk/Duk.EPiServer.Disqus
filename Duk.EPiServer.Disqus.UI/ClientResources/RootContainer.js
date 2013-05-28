@@ -22,17 +22,15 @@ function (declare, string, _WidgetBase, _Container,
         //  summary:
         //      Root container for Disqus UI component.
         //  description:
-        //      Creates and initializes main widgets.
-
-        startup: function () {
-            // tags: Creates settings widgets
+        //      Creates and initializes settings widgets.
+       
+        buildRendering: function () {
+            // tags: Creates all settings widgets
             //      public
-
-            if (this._started) {
-                return;
-            }
-            
             this.inherited(arguments);
+            
+            // TODO: Own and destroy created widgets and models to avoid memory leaks. Use dijit/Destroyable starting from Dojo 1.8.
+            // TODO: Check how it can be achieved in Dojo 1.7
             
             var generalSettingsModel = new GeneralSettingsViewModel();
 
