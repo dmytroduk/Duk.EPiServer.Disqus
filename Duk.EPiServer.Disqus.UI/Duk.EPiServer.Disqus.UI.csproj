@@ -85,7 +85,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="ClientResources\AreaSettings.js" />
-    <Content Include="ClientResources\Admin.js" />
+    <Content Include="ClientResources\AdminLinks.js" />
     <Content Include="ClientResources\EditMode.css" />
     <Content Include="ClientResources\GeneralSettingsViewModel.js" />
     <Content Include="ClientResources\AreaSettingsViewModel.js" />
@@ -96,7 +96,7 @@
     <Content Include="ClientResources\Settings.css" />
     <Content Include="ClientResources\SettingsSection.js" />
     <Content Include="ClientResources\templates\AreaSettings.htm" />
-    <Content Include="ClientResources\templates\Admin.htm" />
+    <Content Include="ClientResources\templates\AdminLinks.htm" />
     <Content Include="ClientResources\templates\SettingsSection.htm" />
     <Content Include="ClientResources\_OperationNotifier.js" />
     <EmbeddedResource Include="EmbeddedLangFiles\DisqusUI_sv.xml" />

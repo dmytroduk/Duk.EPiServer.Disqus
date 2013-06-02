@@ -70,12 +70,12 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
 
         private IConfiguration CreateDefaultConfiguration()
         {
-            return new Duk.EPiServer.Disqus.Models.Configuration.Configuration { ShortName = string.Empty, DeveloperMode = true, ShowPoweredByNotice = false };
+            return new Configuration { ShortName = string.Empty, DeveloperMode = true, ShowPoweredByNotice = false };
         }
 
         private static IConfiguration CreateConfiguration(ConfigurationEntity entity)
         {
-            return new Duk.EPiServer.Disqus.Models.Configuration.Configuration
+            return new Configuration
                        {
                            DeveloperMode = entity.DeveloperMode,
                            ShortName = entity.ShortName,

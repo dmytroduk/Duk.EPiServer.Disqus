@@ -17,8 +17,12 @@ function (
         // summary:
         // 		The view model for Disqus rendering area settings widget
 
+        // renderingAreas: [public] Array
+        //		The list of rendering areas where Disqus comments should be added on page
         renderingAreas: null,
 
+        // dataStore: [public] Object
+        //		Configuration data store
         dataStore: null,
         
         _currentLoadDeferred: null,
@@ -30,13 +34,27 @@ function (
         },
 
         postscript: function () {
+            // summary:
+            //      Setup settings store.
+            // tags:
+            //      public
             this.inherited(arguments);
 
-            var storeRegistry = dependency.resolve("epi.storeregistry");
-            this.dataStore = this.dataStore || storeRegistry.get("duk-disqus.areaconfiguration");
+            if (!this.dataStore) {
+                var storeRegistry = dependency.resolve("epi.storeregistry");
+                this.dataStore = storeRegistry.get("duk-disqus.areaconfiguration");
+            }
         },
 
         load: function () {
+            // summary:
+            //      Loads settings from the store and initializes model attributes.
+            //
+            //  returns:
+            //      Promise indicating when load operation is completed
+            //
+            // tags:
+            //      public
             if (this._currentLoadDeferred) {
                 return this._currentLoadDeferred.promise;
             }
@@ -53,6 +71,14 @@ function (
         },
 
         save: function () {
+            // summary:
+            //      Saves current settings data to the store.
+            //
+            //  returns:
+            //      Promise indicating when save operation is completed
+            //
+            // tags:
+            //      public
             if (this._currentSaveDeferred) {
                 return _currentSaveDeferred.promise;
             }
@@ -70,6 +96,17 @@ function (
         },
 
         _toArray: function (areas) {
+            // summary:
+            //      Converts string to array using new line as separator.
+            //
+            //  areas:
+            //      String that should be converted to the array.
+            //
+            //  returns:
+            //      Array
+            //
+            // tags:
+            //      private
             if (lang.isArray(areas)) {
                 return areas;
             } else {
@@ -86,7 +123,18 @@ function (
             }
         },
         
-        _toString: function(areaList) {
+        _toString: function (areaList) {
+            // summary:
+            //      Converts array to string using new line as separator.
+            //
+            //  areaList:
+            //      Attay that should be converted to string.
+            //
+            //  returns:
+            //      String
+            //
+            // tags:
+            //      private
             return (areaList && lang.isArray(areaList)) ? areaList.join("\n") : "";
         }
     });

@@ -15,35 +15,35 @@ function (
         // summary:
         // 		The view model for General settings and Disqus Admin widgets
 
-        // shortName: String
+        // shortName: [public] String
         //		The short name (Disqus ID)
         shortName: null,
 
-        // developerMode: Boolean
+        // developerMode: [public] Boolean
         //		True when developer mode is on
         developerMode: false,
 
-        // showPoweredByNotice: Boolean
+        // showPoweredByNotice: [public] Boolean
         //		True when 'Powered by Disqus' notice should be displayed
         showPoweredByNotice: false,
       
-        // moderateAdminUrl: String
+        // moderateAdminUrl: [public] String
         //      The URL of the comments moderation section in the Disqus Admin UI
         moderateAdminUrl: null,
 
-        // settingsAdminUrl: String
+        // settingsAdminUrl: [public] String
         //      The URL of the settings section in the Disqus Admin UI
         settingsAdminUrl: null,
 
-        // analyticsAdminUrl: String
+        // analyticsAdminUrl: [public] String
         //      The URL of the analytics section in the Disqus Admin UI
         analyticsAdminUrl: null,
         
-        // discussionsAdminUrl: String
+        // discussionsAdminUrl: [public] String
         //      The URL of the migrate, import and export tools section in the Disqus Admin UI
         discussionsAdminUrl: null,
 
-        // configurationStore: Object
+        // configurationStore: [public] Object
         //      Configuration data store
         configurationStore: null,
         
@@ -57,13 +57,27 @@ function (
         },
 
         postscript: function () {
+            // summary:
+            //      Setup settings store.
+            // tags:
+            //      public
             this.inherited(arguments);
 
-            var storeRegistry = dependency.resolve("epi.storeregistry");
-            this.configurationStore = this.configurationStore || storeRegistry.get("duk-disqus.configuration");
+            if (!this.configurationStore) {
+                var storeRegistry = dependency.resolve("epi.storeregistry");
+                this.configurationStore = storeRegistry.get("duk-disqus.configuration");
+            }
         },
 
         load: function () {
+            // summary:
+            //      Loads settings from the store and initializes model attributes.
+            //
+            //  returns:
+            //      Promise indicating when load operation is completed
+            //
+            // tags:
+            //      public
             if (this._currentLoadDeferred) {
                 return this._currentLoadDeferred.promise;
             }
@@ -85,6 +99,14 @@ function (
         },
 
         save: function () {
+            // summary:
+            //      Saves current settings data to the store.
+            //
+            //  returns:
+            //      Promise indicating when save operation is completed
+            //
+            // tags:
+            //      public            
             if (this._currentSaveDeferred) {
                 return _currentSaveDeferred.promise;
             }
@@ -105,6 +127,10 @@ function (
         },
       
         _createAdminLinks: function () {
+            // summary:
+            //      Constructs admin links using current settings.
+            // tags:
+            //      public            
             if (this.shortName) {
                 this.set("moderateAdminUrl", "http://" + this.shortName + ".disqus.com/admin/moderate/");
                 this.set("settingsAdminUrl", "http://" + this.shortName + ".disqus.com/admin/settings/");

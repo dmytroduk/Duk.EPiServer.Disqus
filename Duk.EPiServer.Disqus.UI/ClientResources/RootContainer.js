@@ -7,7 +7,7 @@
 
 "./SettingsSection",
 "./GeneralSettings",
-"./Admin",
+"./AdminLinks",
 "./GeneralSettingsViewModel",
 "./AreaSettings",
 "./AreaSettingsViewModel",
@@ -16,7 +16,7 @@
 ],
 
 function (declare, string, _WidgetBase, _Container,
-    SettingsSection, GeneralSettings, Admin, GeneralSettingsViewModel, AreaSettings, AreaSettingsViewModel, i18n) {
+    SettingsSection, GeneralSettings, AdminLinks, GeneralSettingsViewModel, AreaSettings, AreaSettingsViewModel, i18n) {
 
     return declare([_WidgetBase, _Container], {
         //  summary:
@@ -25,33 +25,37 @@ function (declare, string, _WidgetBase, _Container,
         //      Creates and initializes settings widgets.
        
         buildRendering: function () {
-            // tags: Creates all settings widgets
+            // summary:
+            //      Creates all settings widgets
+            // tags:
             //      public
             this.inherited(arguments);
             
             // TODO: Own and destroy created widgets and models to avoid memory leaks. Use dijit/Destroyable starting from Dojo 1.8.
-            // TODO: Check how it can be achieved in Dojo 1.7
             
             var generalSettingsModel = new GeneralSettingsViewModel();
 
+            // General settings widgets
             var generalSection = new SettingsSection({
                 settingsWidget: new GeneralSettings({ model: generalSettingsModel }),
                 title: i18n.generalSettingsTitle,
                 description: "<span>" +
                     string.substitute(i18n.generalSettingsDescription, {
-                        disqusLink: "<a class='epi-visibleLink' href='http://disqus.com/profile/signup/' target='_blank'>disqus.com</a>"
+                        disqusLink: "<a class='epi-visibleLink' href='http://disqus.com/profile/signup/' target='DisqusAdmin'>disqus.com</a>"
                     }) +
                     "</span>"
             });
             this.addChild(generalSection);
             
+            // Admin links widgets
             var adminSection = new SettingsSection({
-                settingsWidget: new Admin({ model: generalSettingsModel }),
+                settingsWidget: new AdminLinks({ model: generalSettingsModel }),
                 title: i18n.adminTitle,
                 description: "<span>" + i18n.adminDescription + "</span>"
             });
             this.addChild(adminSection);
           
+            // Rendering areas configuration widgets
             var areaSettingsSection = new SettingsSection({
                 settingsWidget: new AreaSettings({ model: new AreaSettingsViewModel() }),
                 title: i18n.areaSettingsTitle,

@@ -1,9 +1,7 @@
 ﻿define([
 // Dojo
-    "dojo",
     "dojo/_base/declare",
     "dojo/_base/lang",
-    "dojo/_base/Deferred",
     "dojo/dom-class",
 
 
@@ -11,7 +9,6 @@
     "dijit/_TemplatedMixin",
     "dijit/_WidgetBase",
     "dijit/_WidgetsInTemplateMixin",
-    "dijit/form/ValidationTextBox",
 
 // Dojox
     "dojox/validate/web",
@@ -28,10 +25,10 @@
 
 ], function (
 // Dojo
-    dojo, declare, lang, Deferred, domClass, 
+    declare, lang, domClass, 
 
 // Dijit
-    _TemplatedMixin, _WidgetBase, _WidgetsInTemplateMixin, ValidationTextBox,
+    _TemplatedMixin, _WidgetBase, _WidgetsInTemplateMixin,
 
 // Dojox
     validate,
@@ -43,19 +40,27 @@
     _OperationNotifier,
 
 // Resources
-    template, i18n
-) {
-
-    // module:
-    //		
-    // summary:
-    //		
-
+    template, i18n) {
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, _ModelBindingMixin, _OperationNotifier], {
-
+        // summary:
+        //    General settings widget
+        //
+        // description:
+        //    Enables editing of general settings required for Disqus integration, like short name and so on.
+        //
+        // tags:
+        //    public
+        
+        // i18n: [public] Object
+        //      Localized texts
         i18n: i18n,
+        
+        // templateString: [public] String
+        //      Widget template
         templateString: template,
 
+        // modelBindingMap: [public] Object
+        //      Map to bind widget and model attributes
         modelBindingMap: {
             "shortName": ["shortName"],
             "developerMode": ["developerMode"],
@@ -75,6 +80,13 @@
         },
 
         startup: function () {
+            // summary:
+            //      Loads settings and initializes controls
+            // tags:
+            //      public
+            if (this._started) {
+                return;
+            }
             this.inherited(arguments);
 
             this.onOperationStarted();
@@ -93,6 +105,10 @@
         },
 
         _saveClick: function () {
+            // summary:
+            //      Validates settings, sets model values and saves data
+            // tags:
+            //      private
             if (!this._validateSettings()) {
                 return;
             }
@@ -109,6 +125,10 @@
         },
 
         _indicateUnsaved: function (newValue, oldValue) {
+            // summary:
+            //      Indicates whether settings were updated and can be saved
+            // tags:
+            //      private            
             if (!this._validateSettings()) {
                 return;
             }
@@ -118,10 +138,18 @@
         },
 
         _indicateSaved: function () {
+            // summary:
+            //      Removes indication that settings were updated
+            // tags:
+            //      private                  
             domClass.remove(this._saveButton.domNode, "Sweet");
         },
         
         _validateSettings: function () {
+            // summary:
+            //      Checks whether settings are valid
+            // tags:
+            //      private                  
             return this._shortNameControl.isValid();
         }
     });

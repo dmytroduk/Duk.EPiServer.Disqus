@@ -10,11 +10,10 @@ function (declare, _Module, routes) {
     return declare([_Module], {
         // summary:
         //		Disqus module initializer.
-        //
 
         initialize: function () {
             // summary:
-            //		Initialize module
+            //		Initializes the module
             //
             // description:
             //      Creates and register Disqus settings data store.

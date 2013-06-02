@@ -3,11 +3,10 @@
     "dojo/_base/declare",
     "dojo/_base/lang",
     "dojo/dom-class",
-    
    
 // Dijit
-    "dijit/_TemplatedMixin",
     "dijit/_WidgetBase",
+    "dijit/_TemplatedMixin",
     "dijit/_WidgetsInTemplateMixin",
     "dijit/form/Textarea",
 
@@ -26,7 +25,7 @@
     declare, lang, domClass,
     
 // Dijit
-    _TemplatedMixin, _WidgetBase, _WidgetsInTemplateMixin, Textarea,
+    _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, Textarea,
     
 // EPi
     _ModelBindingMixin, 
@@ -35,18 +34,25 @@
     _OperationNotifier,
 
 // Resources
-    template, i18n
-) {
-
-    // module:
-    //		
-    // summary:
-    //		
-
+    template, i18n) {
+    
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, _ModelBindingMixin, _OperationNotifier], {
+        // summary:
+        //    Rendering areas configuration widget
+        //
+        // description:
+        //    Widget to edit the list of rendering areas where Disqus comments should be rendered.
+        //
+        // tags:
+        //    public
 
-        templateString: template,
+        // i18n: [public] Object
+        //      Localized texts
         i18n: i18n,
+
+        // templateString: [public] String
+        //      Widget template
+        templateString: template,
         
         modelBindingMap: {
             "renderingAreas": ["renderingAreas"]
@@ -57,10 +63,13 @@
         }, 
        
         startup: function () {
+            // summary:
+            //      Loads settings and initializes edit controls
+            // tags:
+            //      public
             if (this._started) {
                 return;
             }
-
             this.inherited(arguments);
            
             this.onOperationStarted();
@@ -76,6 +85,10 @@
         },
         
         _saveClick: function () {
+            // summary:
+            //      Prepares data, sets model values and saves settings
+            // tags:
+            //      private
             this.model.set("renderingAreas", this._areaList.value);
             this.onOperationStarted();
             this.model.save().then(lang.hitch(this, function() {
@@ -87,12 +100,20 @@
         },
         
         _indicateUnsaved: function (newValue, oldValue) {
+            // summary:
+            //      Indicates whether settings were updated and can be saved
+            // tags:
+            //      private
             if (newValue !== oldValue) {
                 domClass.add(this._saveButton.domNode, "Sweet");
             }
         },
 
         _indicateSaved: function () {
+            // summary:
+            //      Removes indication that settings were updated
+            // tags:
+            //      private
             domClass.remove(this._saveButton.domNode, "Sweet");
         }
     });

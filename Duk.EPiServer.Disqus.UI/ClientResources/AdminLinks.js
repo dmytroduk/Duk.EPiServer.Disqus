@@ -15,7 +15,7 @@
     "./_OperationNotifier",
 
 // Resources
-    "dojo/text!./templates/Admin.htm",
+    "dojo/text!./templates/AdminLinks.htm",
     "dojo/i18n!./nls/Settings"
 
 ], function (
@@ -32,19 +32,27 @@
     _OperationNotifier,
 
 // Resources
-    template, i18n
-) {
-
-    // module:
-    //		
-    // summary:
-    //		
-
+    template, i18n) {
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, _ModelBindingMixin, _OperationNotifier], {
+        // summary:
+        //    Disqus admin links widget
+        //
+        // description:
+        //    Provides quick links to manage comments using Disqus Admin UI.
+        //
+        // tags:
+        //    public
 
+        // i18n: [public] Object
+        //      Localized texts
         i18n: i18n,
+        
+        // templateString: [public] String
+        //      Widget template
         templateString: template,
 
+        // modelBindingMap: [public] Object
+        //      Map to bind widget and model link attributes
         modelBindingMap: {
             "moderateAdminUrl": ["moderateAdminUrl"],
             "settingsAdminUrl": ["settingsAdminUrl"],
@@ -58,6 +66,13 @@
         _setDiscussionsAdminUrlAttr: { node: "_discussionsLink", attribute: "href" },
         
         startup: function () {
+            // summary:
+            //      Loads settings and initializes quick links
+            // tags:
+            //      public
+            if (this._started) {
+                return;
+            }
             this.inherited(arguments);
 
             this.onOperationStarted();

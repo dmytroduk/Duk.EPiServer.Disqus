@@ -1,17 +1,10 @@
 ﻿define([
-"dojo",
 "dojo/_base/declare",
-"dojo/_base/array",
-"dojo/dom-construct",
-"dojo/dom-style",
 
-"dijit",
-"dijit/layout/_LayoutWidget",
 "dijit/_WidgetBase",
 "dijit/_WidgetsInTemplateMixin",
 "dijit/_TemplatedMixin",
 "dijit/_Container",
-"dijit/form/Button",
 
 "dojox/widget/Standby",
 
@@ -20,9 +13,7 @@
 
 "dojo/text!./templates/SettingsSection.htm"
 
-], function (dojo, declare, array, domConstruct, domStyle, dijit,
-    _LayoutWidget, _WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin, _Container, Button,
-    Standby,
+], function (declare, _WidgetBase, _WidgetsInTemplateMixin, _TemplatedMixin, _Container, Standby,
     _OperationNotifier, NotificationList,
     template) {
 
@@ -31,14 +22,17 @@
         //    Settings section widget
         //
         // description:
-        //    Displays the Disqus configuration section.
+        //    Displays the configuration section and corresponding settings widget.
         //
         // tags:
         //    public
 
-
+        // templateString: [public] String
+        //      Widget template
         templateString: template,
         
+        // settingsWidget: [public] Object
+        //      Settings widget that should be displayed in this section
         settingsWidget: null,
 
         _setTitleAttr: { node: "_titleNode", type: "innerHTML" },
@@ -46,6 +40,11 @@
         _setDescriptionAttr: { node: "_descriptionNode", type: "innerHTML" },
 
         startup: function () {
+            // summary:
+            //    Places settings widget and subscribes to operation notifications.
+            //
+            // tags:
+            //    public
             if (this._started) {
                 return;
             }
@@ -62,6 +61,12 @@
         },
      
         _subscribeToNotifications: function () {
+            // summary:
+            //    Subscribes to operation notifications of settings widget.
+            //
+            // tags:
+            //    private
+            
             this.connect(this.settingsWidget, "onOperationStarted", function () {
                 this._standbyIndicator.show();
             });

@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Duk.EPiServer.Disqus.Models;
 using EPiServer.Framework.Web.Resources;
+using EPiServer.ServiceLocation;
 using EPiServer.Web.Mvc;
 
 namespace Duk.EPiServer.Disqus.Controllers
@@ -18,8 +19,8 @@ namespace Duk.EPiServer.Disqus.Controllers
         /// </summary>
         public CommentsBlockController()
         {
-            _requiredResources = global::EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IRequiredClientResourceList>();
-            _renderingService = global::EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IRenderingService>();
+            _requiredResources = ServiceLocator.Current.GetInstance<IRequiredClientResourceList>();
+            _renderingService = ServiceLocator.Current.GetInstance<IRenderingService>();
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="CommentsBlockController" /> class.
