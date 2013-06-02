@@ -7,7 +7,6 @@ namespace Duk.EPiServer.Disqus.Models.Context
     /// <summary>
     /// Default context provider, returns context data based on a current CMS page
     /// </summary>
-    [ServiceConfiguration(ServiceType = typeof(IContextProvider), Lifecycle = ServiceInstanceScope.Singleton)]
     public class ContentContextProvider : IContextProvider
     {
         private readonly PageRouteHelper _pageRouteHelper;

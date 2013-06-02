@@ -11,7 +11,6 @@ namespace Duk.EPiServer.Disqus.Models
     /// <summary>
     /// Generates Disqus comments thread and injects client resources that should be rendered.
     /// </summary>
-    [ServiceConfiguration(ServiceType = typeof(IRenderingService), Lifecycle = ServiceInstanceScope.HttpContext)]
     public class RenderingService : IRenderingService
     {
         private readonly IServiceLocator _serviceLocator;

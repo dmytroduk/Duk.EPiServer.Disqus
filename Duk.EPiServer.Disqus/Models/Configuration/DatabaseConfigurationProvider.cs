@@ -9,7 +9,6 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
     /// <summary>
     /// Provides Disqus configuration stored in DDS
     /// </summary>
-    [ServiceConfiguration(ServiceType = typeof(IConfigurationProvider), Lifecycle = ServiceInstanceScope.Hybrid)]
     public class DatabaseConfigurationProvider : IConfigurationProvider
     {
         private readonly DynamicDataStoreFactory _storeFactory;

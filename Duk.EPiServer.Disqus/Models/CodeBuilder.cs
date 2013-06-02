@@ -9,7 +9,6 @@ namespace Duk.EPiServer.Disqus.Models
     /// <summary>
     /// Generates the Disqus comments thread code and loader script that should be rendered on a page.
     /// </summary>
-    [ServiceConfiguration(ServiceType = typeof(ICodeBuilder), Lifecycle = ServiceInstanceScope.HttpContext)]
     public class CodeBuilder : ICodeBuilder
     {
         private const string ShortnameParameterTemplate = "var disqus_shortname = '{0}';";

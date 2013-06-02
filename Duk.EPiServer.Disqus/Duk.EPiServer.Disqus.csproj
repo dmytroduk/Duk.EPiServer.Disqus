@@ -59,13 +59,14 @@
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurableModule.cs" />
     <Compile Include="Models\Configuration\Configuration.cs" />
     <Compile Include="Models\Configuration\ConfigurationEntity.cs" />
     <Compile Include="Models\Configuration\DatabaseConfigurationProvider.cs" />
     <Compile Include="Models\Context\ContentContext.cs" />
     <Compile Include="Models\Context\ContentContextProvider.cs" />
     <Compile Include="Controllers\CommentsBlockController.cs" />
-    <Compile Include="Initializer.cs" />
+    <Compile Include="AddonInitializer.cs" />
     <Compile Include="Models\ClientResourceRegister.cs" />
     <Compile Include="Models\CommentsBlock.cs" />
     <Compile Include="CommentsControl.cs" />

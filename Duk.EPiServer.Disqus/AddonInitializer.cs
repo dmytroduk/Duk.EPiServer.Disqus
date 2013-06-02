@@ -18,7 +18,7 @@ namespace Duk.EPiServer.Disqus
     /// </summary>
     [ModuleDependency(typeof(PackagingInitialization))]
     [ModuleDependency(typeof(global::EPiServer.Web.InitializationModule))]
-    public class Initializer : PackageInitializer
+    public class AddonInitializer : PackageInitializer
     {
         private readonly IContentRepository _contentRepository;
         private readonly IContentTypeRepository _contentTypeRepository;
@@ -52,21 +52,21 @@ namespace Duk.EPiServer.Disqus
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Initializer"/> class.
+        /// Initializes a new instance of the <see cref="AddonInitializer"/> class.
         /// </summary>
-        public Initializer()
+        public AddonInitializer()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Initializer"/> class.
+        /// Initializes a new instance of the <see cref="AddonInitializer"/> class.
         /// </summary>
         /// <param name="contentRepository">The content repository.</param>
         /// <param name="contentTypeRepository">The content type repository.</param>
         /// <param name="contentModelUsage">The content model usage.</param>
         /// <param name="languageSelectorFactory">The language selector factory.</param>
         /// <param name="configurationProvider">The configuration provider.</param>
-        public Initializer(IContentRepository contentRepository, IContentTypeRepository contentTypeRepository,
+        public AddonInitializer(IContentRepository contentRepository, IContentTypeRepository contentTypeRepository,
             IContentModelUsage contentModelUsage, LanguageSelectorFactory languageSelectorFactory,
             IConfigurationProvider configurationProvider)
         {
