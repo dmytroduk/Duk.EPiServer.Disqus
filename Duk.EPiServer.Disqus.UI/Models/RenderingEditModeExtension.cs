@@ -6,7 +6,6 @@ using System.Web.Routing;
 using Duk.EPiServer.Disqus.Models;
 using EPiServer.Framework.Localization;
 using EPiServer.Framework.Web.Resources;
-using EPiServer.ServiceLocation;
 using EPiServer.Shell.Modules;
 
 namespace Duk.EPiServer.Disqus.UI.Models
@@ -14,7 +13,6 @@ namespace Duk.EPiServer.Disqus.UI.Models
     /// <summary>
     /// Extension to render additional stuff when Disqus comments are rendered on page in Edit mode.
     /// </summary>
-    [ServiceConfiguration(ServiceType = typeof(IRenderingEditModeExtension), Lifecycle = ServiceInstanceScope.HttpContext)]
     public class RenderingEditModeExtension : IRenderingEditModeExtension
     {
         private readonly string _configurationUrl;
@@ -44,7 +42,7 @@ namespace Duk.EPiServer.Disqus.UI.Models
                 return;
             }
 
-            requiredResources.Require("epi-disqus.EditMode");
+            requiredResources.Require("duk-disqus.EditMode");
 
             if (!renderingModel.IsEnabled)
             {
@@ -57,7 +55,7 @@ namespace Duk.EPiServer.Disqus.UI.Models
             var inlineStyle = String.Format(CultureInfo.InvariantCulture, "div#disqus_thread:empty:before {{content: '{0}';}}",
                                             _localizationService.GetString("/disqus/ui/rendering/severalthreadsonpage"));
 
-            requiredResources.RequireStyleInline(inlineStyle, "epi-disqus.EditMode.severalThreadsIndicator", null);
+            requiredResources.RequireStyleInline(inlineStyle, "duk-disqus.EditMode.severalThreadsIndicator", null);
         }
 
         /// <summary>

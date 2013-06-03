@@ -1,6 +1,5 @@
 ﻿using EPiServer.Editor;
 using EPiServer.Web.Routing;
-using EPiServer.ServiceLocation;
 
 namespace Duk.EPiServer.Disqus.Models.Context
 {

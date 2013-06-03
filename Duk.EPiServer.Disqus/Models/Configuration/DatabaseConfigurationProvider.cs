@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EPiServer.Data.Dynamic;
-using EPiServer.ServiceLocation;
 using EPiServer.Shell.Composition;
 
 namespace Duk.EPiServer.Disqus.Models.Configuration
@@ -69,12 +68,12 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
 
         private IConfiguration CreateDefaultConfiguration()
         {
-            return new Configuration { ShortName = string.Empty, DeveloperMode = true, ShowPoweredByNotice = false };
+            return new DisqusConfiguration { ShortName = string.Empty, DeveloperMode = true, ShowPoweredByNotice = false };
         }
 
         private static IConfiguration CreateConfiguration(ConfigurationEntity entity)
         {
-            return new Configuration
+            return new DisqusConfiguration
                        {
                            DeveloperMode = entity.DeveloperMode,
                            ShortName = entity.ShortName,

@@ -11,7 +11,7 @@ namespace Duk.EPiServer.Disqus
     /// Configures service locator with default implementations
     /// </summary>
     [InitializableModule]
-    public class ConfigurableModule : IConfigurableModule
+    public class InitializationModule : IConfigurableModule
     {
         /// <summary>
         /// Configures the service container.
@@ -26,7 +26,6 @@ namespace Duk.EPiServer.Disqus
                 ce.For<IRenderingService>().Use<RenderingService>();
                 ce.For<IRenderingService>().Use<RenderingService>();
                 ce.For<ICodeBuilder>().Use<CodeBuilder>();
-
             });
         }
 

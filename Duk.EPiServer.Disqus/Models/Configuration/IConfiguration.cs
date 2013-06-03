@@ -8,14 +8,6 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
     public interface IConfiguration
     {
         /// <summary>
-        /// Gets a value indicating whether Disqus comments are configured and enabled.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if Disqus is configured and enabled; otherwise, <c>false</c>.
-        /// </value>
-        bool IsEnabled { get; }
-
-        /// <summary>
         /// Gets or sets the Disqus short name, which is the unique identifier for a website as registered on Disqus.
         /// </summary>
         /// <value>

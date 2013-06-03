@@ -104,7 +104,7 @@ namespace Duk.EPiServer.Disqus.Models
                 return;
             }
 
-            requiredResources.RequireScriptInline(renderingModel.LoaderScript, "epi-disqus.Loader", null).AtFooter();
+            requiredResources.RequireScriptInline(renderingModel.LoaderScript, "duk-disqus.Loader", null).AtFooter();
 
             if (context.IsInEditMode && _editModeRendering.Value != null)
             {
@@ -144,8 +144,9 @@ namespace Duk.EPiServer.Disqus.Models
         /// <returns></returns>
         private RenderingModel CreateRenderingModel(IConfiguration configuration, IContext context)
         {
-            var renderingModel = new RenderingModel { IsEnabled = configuration.IsEnabled };
-            if (configuration.IsEnabled)
+            var isDisqusEnabled = IsDisqusEnabled(configuration);
+            var renderingModel = new RenderingModel { IsEnabled = isDisqusEnabled };
+            if (isDisqusEnabled)
             {
                 renderingModel.LoaderScript = _codeBuilder.CreateLoaderScript(configuration, context);
                 renderingModel.ThreadCode = _codeBuilder.CreateThreadCode(configuration, context);
@@ -167,6 +168,11 @@ namespace Duk.EPiServer.Disqus.Models
             {
                 return null;
             }
+        }
+
+        private static bool IsDisqusEnabled(IConfiguration configuration)
+        {
+            return configuration != null && !String.IsNullOrWhiteSpace(configuration.ShortName); 
         }
     }
 }

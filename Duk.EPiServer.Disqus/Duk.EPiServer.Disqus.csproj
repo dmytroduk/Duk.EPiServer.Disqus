@@ -59,8 +59,8 @@
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurableModule.cs" />
-    <Compile Include="Models\Configuration\Configuration.cs" />
+    <Compile Include="InitializationModule.cs" />
+    <Compile Include="Models\Configuration\DisqusConfiguration.cs" />
     <Compile Include="Models\Configuration\ConfigurationEntity.cs" />
     <Compile Include="Models\Configuration\DatabaseConfigurationProvider.cs" />
     <Compile Include="Models\Context\ContentContext.cs" />
