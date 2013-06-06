@@ -63,8 +63,7 @@
         //      Map to bind widget and model attributes
         modelBindingMap: {
             "shortName": ["shortName"],
-            "developerMode": ["developerMode"],
-            "showPoweredByNotice": ["showPoweredByNotice"]
+            "developerMode": ["developerMode"]
         },
 
         _setShortNameAttr: function (shortName) {
@@ -73,10 +72,6 @@
 
         _setDeveloperModeAttr: function (developerMode) {
             this._developerModeControl.set("checked", developerMode, false);
-        },
-
-        _setShowPoweredByNoticeAttr: function (showPoweredByNotice) {
-            this._showPoweredByNoticeControl.set("checked", showPoweredByNotice, false);
         },
 
         startup: function () {
@@ -95,8 +90,6 @@
                         function (value) { this._indicateUnsaved(value, this.model.shortName); });
                     this.connect(this._developerModeControl, "onChange",
                         function (value) { this._indicateUnsaved(value, this.model.developerMode); });
-                    this.connect(this._showPoweredByNoticeControl, "onChange",
-                        function (value) { this._indicateUnsaved(value, this.model.showPoweredByNotice); });
                     this._shortNameControl.intermediateChanges = true;
                     this.onOperationCompleted();
                 }), lang.hitch(this, function (errors) {
@@ -114,7 +107,6 @@
             }
             this.model.set("shortName", this._shortNameControl.value);
             this.model.set("developerMode", this._developerModeControl.checked);
-            this.model.set("showPoweredByNotice", this._showPoweredByNoticeControl.checked);
             this.onOperationStarted();
             this.model.save().then(lang.hitch(this, function () {
                     this._indicateSaved();

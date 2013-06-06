@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Duk.EPiServer.Disqus.Models.Configuration
@@ -27,14 +26,6 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
         ///   <c>true</c> if developer mode; otherwise, <c>false</c>.
         /// </value>
         public bool DeveloperMode { get; set; }
-
-        /// <summary>
-        /// Gets a value indicating whether should show "powered by Disqus" notice.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if show the notice; otherwise, <c>false</c>.
-        /// </value>
-        public bool ShowPoweredByNotice { get; set; }
 
         /// <summary>
         /// Gets the rendering areas where Disqus comments thread should be rendered on pages.

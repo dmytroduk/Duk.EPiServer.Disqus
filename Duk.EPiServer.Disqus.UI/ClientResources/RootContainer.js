@@ -43,7 +43,8 @@ function (declare, string, _WidgetBase, _Container,
                     string.substitute(i18n.generalSettingsDescription, {
                         disqusLink: "<a class='epi-visibleLink' href='http://disqus.com/profile/signup/' target='DisqusAdmin'>disqus.com</a>"
                     }) +
-                    "</span>"
+                    " <a class='epi-visibleLink' href='http://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-' target='DisqusAdmin'>" +
+                    i18n.whatIsAShortname + "</a></span>"
             });
             this.addChild(generalSection);
             

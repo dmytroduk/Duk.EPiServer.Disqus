@@ -2,7 +2,6 @@
 using System.Text;
 using Duk.EPiServer.Disqus.Models.Configuration;
 using Duk.EPiServer.Disqus.Models.Context;
-using EPiServer.ServiceLocation;
 
 namespace Duk.EPiServer.Disqus.Models
 {
@@ -28,9 +27,6 @@ namespace Duk.EPiServer.Disqus.Models
         private const string ThreadTemplate = "<div id=\"disqus_thread\"></div>";
 
         private const string NoScriptTemplate = "<noscript>Please enable JavaScript to view the <a href=\"http://disqus.com/?ref_noscript\">comments powered by Disqus.</a></noscript>";
-
-        private const string PoweredByTemplate = "<a href=\"http://disqus.com\" class=\"dsq-brlink\">comments powered by <span class=\"logo-disqus\">Disqus</span></a>";
-
 
         /// <summary>
         /// Creates the Disqus loader script.
@@ -60,10 +56,6 @@ namespace Duk.EPiServer.Disqus.Models
         {
             var code = new StringBuilder(ThreadTemplate);
             code.Append(NoScriptTemplate);
-            if (configuration.ShowPoweredByNotice)
-            {
-                code.Append(PoweredByTemplate);
-            }
             return code.ToString();
         }
 

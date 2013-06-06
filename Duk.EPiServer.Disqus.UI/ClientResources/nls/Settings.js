@@ -2,11 +2,11 @@
     root:
         ({
             generalSettingsTitle: "General Disqus Settings",
-            generalSettingsDescription: "Please register on ${disqusLink} to obtain the short name (your Disqus ID).",
-            shortNameTitle: "Short name (your Disqus ID)",
-            shortNameInvalidMessage: "Disqus short name should be a non-space text consisting of letters, numbers, underscores or hyphens.",
+            generalSettingsDescription: "Please register on ${disqusLink} and choose the shortname for your site.",
+            whatIsAShortname: "What's a shortname?",
+            shortNameTitle: "Shortname",
+            shortNameInvalidMessage: "Disqus shortname should be a non-space text consisting of letters, numbers, underscores or hyphens.",
             enableDeveloperModeTitle: "Enable developer mode",
-            showPoweredByTitle: "Show 'Powered by Disqus' notice",
             
             adminTitle: "Disqus Admin",
             adminDescription: "Configure Disqus for your website and manage comments, discussion and analytics using Disqus admin interface.",

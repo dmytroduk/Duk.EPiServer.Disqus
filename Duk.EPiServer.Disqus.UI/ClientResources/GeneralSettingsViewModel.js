@@ -22,11 +22,7 @@ function (
         // developerMode: [public] Boolean
         //		True when developer mode is on
         developerMode: false,
-
-        // showPoweredByNotice: [public] Boolean
-        //		True when 'Powered by Disqus' notice should be displayed
-        showPoweredByNotice: false,
-      
+     
         // moderateAdminUrl: [public] String
         //      The URL of the comments moderation section in the Disqus Admin UI
         moderateAdminUrl: null,
@@ -86,7 +82,6 @@ function (
                 if (configuration) {
                     this.set("shortName", configuration.shortName);
                     this.set("developerMode", configuration.developerMode);
-                    this.set("showPoweredByNotice", configuration.showPoweredByNotice);
                 }
                 this._createAdminLinks();
                 this._currentLoadDeferred.resolve();
@@ -113,8 +108,7 @@ function (
             this._currentSaveDeferred = new Deferred();
             this.configurationStore.put({
                 shortName: this.shortName,
-                developerMode: this.developerMode,
-                showPoweredByNotice: this.showPoweredByNotice
+                developerMode: this.developerMode
             }).then(lang.hitch(this, function() {
                 this._createAdminLinks();
                 this._currentSaveDeferred.resolve();

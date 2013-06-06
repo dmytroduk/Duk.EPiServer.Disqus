@@ -55,7 +55,6 @@ namespace Duk.EPiServer.Disqus.UI.Controllers
             
             configuration.ShortName = configurationModel.ShortName;
             configuration.DeveloperMode = configurationModel.DeveloperMode;
-            configuration.ShowPoweredByNotice = configurationModel.ShowPoweredByNotice;
             
             _configurationProvider.Save(configuration);
 
@@ -69,8 +68,7 @@ namespace Duk.EPiServer.Disqus.UI.Controllers
             return new ConfigurationModel
                        {
                            ShortName = configuration.ShortName,
-                           DeveloperMode = configuration.DeveloperMode,
-                           ShowPoweredByNotice = configuration.ShowPoweredByNotice
+                           DeveloperMode = configuration.DeveloperMode
                        };
         }
     }

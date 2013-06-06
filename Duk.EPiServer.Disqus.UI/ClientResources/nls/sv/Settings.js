@@ -1,10 +1,10 @@
 ﻿define({
     generalSettingsTitle: "Allmänt Disqus inställningar",
-    generalSettingsDescription: "Vänligen registrera dig på ${disqusLink} för att erhålla korta namn (din Disqus-ID).",
-    shortNameTitle: "Kortnamn (din Disqus ID):",
+    generalSettingsDescription: "Vänligen registrera dig på ${disqusLink} och välj kortnamn för din webbplats.",
+    whatIsAShortname: "Vad är ett kortnamn?",
+    shortNameTitle: "Kortnamn",
     shortNameInvalidMessage: "Disqus kortnamn bör vara en icke-space text som består av bokstäver, siffror, understreck eller bindestreck.",
-    enableDeveloperModeTitle: "Aktivera utvecklare läge:",
-    showPoweredByTitle: "Visa 'Powered by Disqus' meddelande",
+    enableDeveloperModeTitle: "Aktivera utvecklare läge",
     
     adminTitle: "Disqus Admin",
     adminDescription: "Konfigurera Disqus för din webbplats och hantera kommentarer, diskussion och analys med hjälp av Disqus admin-gränssnittet.",

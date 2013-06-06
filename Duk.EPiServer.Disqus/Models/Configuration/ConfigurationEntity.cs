@@ -27,14 +27,6 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
         public bool DeveloperMode { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether should show powered by notice.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if should show powered by notice; otherwise, <c>false</c>.
-        /// </value>
-        public bool ShowPoweredByNotice { get; set; }
-
-        /// <summary>
         /// Gets or sets the rendering areas where Disqus comments thread should be rendered.
         /// </summary>
         /// <value>

@@ -23,13 +23,5 @@ namespace Duk.EPiServer.Disqus.UI.Models
         ///   <c>true</c> if developer mode is enabled; otherwise, <c>false</c>.
         /// </value>
         public bool DeveloperMode { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether should show "powered by Disqus" notice.
-        /// </summary>
-        /// <value>
-        /// <c>true</c> if should show "powered by Disqus" notice; otherwise, <c>false</c>.
-        /// </value>
-        public bool ShowPoweredByNotice { get; set; }
     }
 }
