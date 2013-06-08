@@ -10,6 +10,16 @@
       </blocktype>
     </blocktypes>
 
+    <pagetypes>
+      <common>
+        <!-- Disqus comments block properties -->
+        <property name="IsEnabled">
+          <caption>Aktivera Disqus kommentarer</caption>
+          <help>Disqus kommentarer är alltid aktiverat som standard.</help>
+        </property>
+      </common>
+    </pagetypes>
+    
     <disqus>
 
       <dynamiccontent>

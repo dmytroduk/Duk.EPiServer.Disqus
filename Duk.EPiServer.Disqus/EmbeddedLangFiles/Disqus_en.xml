@@ -3,12 +3,22 @@
   <language name="English" id="en">
     
     <blocktypes>
-      <!-- Disqus comments thread block -->
+      <!-- Disqus comments block -->
       <blocktype  name="CommentsBlock">
         <name>Disqus comments</name>
         <description>Allows to add Disqus comments on a page.</description>
       </blocktype>
     </blocktypes>
+
+    <pagetypes>
+      <common>
+        <!-- Disqus comments block properties -->
+        <property name="IsEnabled">
+          <caption>Enable Disqus comments</caption>
+          <help>Disqus comments are always enabled by default.</help>
+        </property>
+      </common>
+    </pagetypes>    
 
     <disqus>
 

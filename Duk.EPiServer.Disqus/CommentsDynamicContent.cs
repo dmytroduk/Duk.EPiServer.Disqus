@@ -11,7 +11,9 @@ namespace Duk.EPiServer.Disqus
     /// <summary>
     /// Disqus comments dynamic content
     /// </summary>
-    [DynamicContentPlugIn(LanguagePath = "/disqus/dynamiccontent")]
+    [DynamicContentPlugIn(LanguagePath = "/disqus/dynamiccontent",
+        DisplayName = "Disqus comments",
+        Description = "Allows to add Disqus comments on a page.")]
     public class CommentsDynamicContent : IDynamicContentView, IDynamicContentDisplayType
     {
         /// <summary>
