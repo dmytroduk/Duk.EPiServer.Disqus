@@ -6,7 +6,7 @@
             whatIsAShortname: "What's a shortname?",
             shortNameTitle: "Shortname",
             shortNameInvalidMessage: "Disqus shortname should be a non-space text consisting of letters, numbers, underscores or hyphens.",
-            enableDeveloperModeTitle: "Enable developer mode",
+            enableTitle: "Enable Disqus comments",
             
             adminTitle: "Disqus Admin",
             adminDescription: "Configure Disqus for your website and manage comments, discussion and analytics using Disqus admin interface.",

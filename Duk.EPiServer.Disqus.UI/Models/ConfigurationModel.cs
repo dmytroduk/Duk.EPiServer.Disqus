@@ -17,11 +17,11 @@ namespace Duk.EPiServer.Disqus.UI.Models
         public string ShortName { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether developer mode is enabled.
+        /// Gets or sets a value indicating whether Disqus comments are enabled on website.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if developer mode is enabled; otherwise, <c>false</c>.
+        ///   <c>true</c> if Disqus comments are enabled; otherwise, <c>false</c>.
         /// </value>
-        public bool DeveloperMode { get; set; }
+        public bool Enabled { get; set; }
     }
 }

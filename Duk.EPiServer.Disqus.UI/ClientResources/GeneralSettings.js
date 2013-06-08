@@ -63,15 +63,15 @@
         //      Map to bind widget and model attributes
         modelBindingMap: {
             "shortName": ["shortName"],
-            "developerMode": ["developerMode"]
+            "enabled": ["enabled"]
         },
 
         _setShortNameAttr: function (shortName) {
             this._shortNameControl.set("value", shortName, false);
         },
 
-        _setDeveloperModeAttr: function (developerMode) {
-            this._developerModeControl.set("checked", developerMode, false);
+        _setEnabledAttr: function (enabled) {
+            this._enabledControl.set("checked", enabled, false);
         },
 
         startup: function () {
@@ -88,8 +88,8 @@
             this.model.load().then(lang.hitch(this, function () {
                     this.connect(this._shortNameControl, "onChange",
                         function (value) { this._indicateUnsaved(value, this.model.shortName); });
-                    this.connect(this._developerModeControl, "onChange",
-                        function (value) { this._indicateUnsaved(value, this.model.developerMode); });
+                    this.connect(this._enabledControl, "onChange",
+                        function (value) { this._indicateUnsaved(value, this.model.enabled); });
                     this._shortNameControl.intermediateChanges = true;
                     this.onOperationCompleted();
                 }), lang.hitch(this, function (errors) {
@@ -106,7 +106,7 @@
                 return;
             }
             this.model.set("shortName", this._shortNameControl.value);
-            this.model.set("developerMode", this._developerModeControl.checked);
+            this.model.set("enabled", this._enabledControl.checked);
             this.onOperationStarted();
             this.model.save().then(lang.hitch(this, function () {
                     this._indicateSaved();

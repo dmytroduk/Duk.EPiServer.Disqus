@@ -16,12 +16,12 @@ function (
         // 		The view model for General settings and Disqus Admin widgets
 
         // shortName: [public] String
-        //		The short name (Disqus ID)
+        //		The Disqus shortname
         shortName: null,
 
-        // developerMode: [public] Boolean
-        //		True when developer mode is on
-        developerMode: false,
+        // enabled: [public] Boolean
+        //		True when Disqus comments are enabled on website
+        enabled: false,
      
         // moderateAdminUrl: [public] String
         //      The URL of the comments moderation section in the Disqus Admin UI
@@ -81,7 +81,7 @@ function (
             this.configurationStore.get().then(lang.hitch(this, function (configuration) {
                 if (configuration) {
                     this.set("shortName", configuration.shortName);
-                    this.set("developerMode", configuration.developerMode);
+                    this.set("enabled", configuration.enabled);
                 }
                 this._createAdminLinks();
                 this._currentLoadDeferred.resolve();
@@ -108,7 +108,7 @@ function (
             this._currentSaveDeferred = new Deferred();
             this.configurationStore.put({
                 shortName: this.shortName,
-                developerMode: this.developerMode
+                enabled: this.enabled
             }).then(lang.hitch(this, function() {
                 this._createAdminLinks();
                 this._currentSaveDeferred.resolve();

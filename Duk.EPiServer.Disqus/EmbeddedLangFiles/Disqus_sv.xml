@@ -13,9 +13,9 @@
     <pagetypes>
       <common>
         <!-- Disqus comments block properties -->
-        <property name="IsEnabled">
-          <caption>Aktivera Disqus kommentarer</caption>
-          <help>Disqus kommentarer är alltid aktiverat som standard.</help>
+        <property name="DisqusSignupUrl">
+          <caption>Registrera på Disqus</caption>
+          <help>Registrera din webbplats och välja ett kortnamn.</help>
         </property>
       </common>
     </pagetypes>

@@ -19,13 +19,12 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
         public string ShortName { get; set; }
 
         /// <summary>
-        /// Gets a value indicating whether Disqus should work in developer mode,
-        /// for example when testing a site and application URL is not equal to website URL defined on Disqus.
+        /// Gets or sets a value indicating whether Disqus comments are enabled on website.
         /// </summary>
         /// <value>
-        ///   <c>true</c> if developer mode; otherwise, <c>false</c>.
+        ///   <c>true</c> if Disqus comments are enabled; otherwise, <c>false</c>.
         /// </value>
-        public bool DeveloperMode { get; set; }
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Gets the rendering areas where Disqus comments thread should be rendered on pages.

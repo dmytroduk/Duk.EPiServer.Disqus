@@ -18,8 +18,10 @@ namespace Duk.EPiServer.Disqus.Models
     
     public class CommentsBlock : BlockData
     {
+        private const string RegistrationUrl = "https://disqus.com/admin/signup/";
+
         /// <summary>
-        /// Gets or sets a value indicating whether this instance is enabled. 
+        /// Disqus signup URL. 
         /// </summary>
         /// <value>
         /// <c>true</c> if this instance is enabled; otherwise, <c>false</c>.
@@ -28,9 +30,9 @@ namespace Duk.EPiServer.Disqus.Models
         /// We have to kepp it in order to make Disqus block "not null" when it is used as content property. 
         /// Otherwise block is considered as "null" and it is not rendered in view mode.</remarks>
         [Editable(false)]
-        [Display(Name = "Enable Disqus comments",
-            Description = "Disqus comments are always enabled by default."),]
-        public virtual bool IsEnabled { get; set; }
+        [Display(Name = "Signup on Disqus",
+            Description = "Register your site and choose a shortname.")]
+        public virtual string DisqusSignupUrl { get; set; }
 
         /// <summary>
         /// Sets the default values for new Disqus comments block.
@@ -39,7 +41,7 @@ namespace Duk.EPiServer.Disqus.Models
         public override void SetDefaultValues(ContentType contentType)
         {
             base.SetDefaultValues(contentType);
-            IsEnabled = true;
+            DisqusSignupUrl = RegistrationUrl;
         }
     }
 }

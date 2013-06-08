@@ -4,7 +4,7 @@
     whatIsAShortname: "Vad är ett kortnamn?",
     shortNameTitle: "Kortnamn",
     shortNameInvalidMessage: "Disqus kortnamn bör vara en icke-space text som består av bokstäver, siffror, understreck eller bindestreck.",
-    enableDeveloperModeTitle: "Aktivera utvecklare läge",
+    enableTitle: "Aktivera Disqus kommentarer",
     
     adminTitle: "Disqus Admin",
     adminDescription: "Konfigurera Disqus för din webbplats och hantera kommentarer, diskussion och analys med hjälp av Disqus admin-gränssnittet.",

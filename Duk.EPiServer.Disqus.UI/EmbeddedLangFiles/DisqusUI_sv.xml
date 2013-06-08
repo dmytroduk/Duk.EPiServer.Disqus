@@ -5,7 +5,7 @@
       <ui>
         <navigationtitle>Disqus</navigationtitle>
         <rendering>
-          <notconfiguredmessage>Det ser ut att Disqus kommentarer tillägget är inte korrekt konfigurerad.</notconfiguredmessage>
+          <notconfiguredmessage>Disqus kommentarer är inaktiverat eller inte korrekt konfigurerad.</notconfiguredmessage>
           <configurationlinkmessage>Vänligen gå till Disqus inställningar för att slutföra konfigurationen.</configurationlinkmessage>
           <severalthreadsonpage>Kunde inte render Disqus kommentarer tråden. Förmodligen finns det flera kommentarer trådar placeras på denna sida.</severalthreadsonpage>
         </rendering>

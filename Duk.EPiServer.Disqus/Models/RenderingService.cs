@@ -172,7 +172,7 @@ namespace Duk.EPiServer.Disqus.Models
 
         private static bool IsDisqusEnabled(IConfiguration configuration)
         {
-            return configuration != null && !String.IsNullOrWhiteSpace(configuration.ShortName); 
+            return configuration != null && configuration.Enabled && !String.IsNullOrWhiteSpace(configuration.ShortName); 
         }
     }
 }

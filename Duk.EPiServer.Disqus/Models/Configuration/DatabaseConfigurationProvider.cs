@@ -68,14 +68,14 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
 
         private IConfiguration CreateDefaultConfiguration()
         {
-            return new DisqusConfiguration { ShortName = string.Empty, DeveloperMode = false };
+            return new DisqusConfiguration { ShortName = string.Empty, Enabled = false };
         }
 
         private static IConfiguration CreateConfiguration(ConfigurationEntity entity)
         {
             return new DisqusConfiguration
                        {
-                           DeveloperMode = entity.DeveloperMode,
+                           Enabled = entity.Enabled,
                            ShortName = entity.ShortName,
                            RenderingAreas = entity.RenderingAreas != null ? entity.RenderingAreas.ToList() : new List<string>()
                        };
@@ -90,7 +90,7 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
 
         private static void UpdateEntity(ConfigurationEntity entity, IConfiguration configuration)
         {
-            entity.DeveloperMode = configuration.DeveloperMode;
+            entity.Enabled = configuration.Enabled;
             entity.ShortName = configuration.ShortName;
             entity.RenderingAreas = configuration.RenderingAreas.ToList();
         }

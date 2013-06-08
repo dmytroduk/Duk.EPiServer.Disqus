@@ -11,7 +11,6 @@ namespace Duk.EPiServer.Disqus.Models
     public class CodeBuilder : ICodeBuilder
     {
         private const string ShortnameParameterTemplate = "var disqus_shortname = '{0}';";
-        private const string DeveloperModeParameterTemplate = "var disqus_developer = {0};";
         private const string IdentifierParameterTemplate = "var disqus_identifier = '{0}';";
         private const string UrlParameterTemplate = "var disqus_url = '{0}';";
         private const string TitleParameterTemplate = "var disqus_title = '{0}';";
@@ -38,7 +37,6 @@ namespace Duk.EPiServer.Disqus.Models
         {
             var parameters = new StringBuilder();
             AddParameter(configuration.ShortName, ShortnameParameterTemplate, ref parameters);
-            AddParameter(configuration.DeveloperMode ? "1" : "0", DeveloperModeParameterTemplate, ref parameters);
             AddParameter(context.Identifier, IdentifierParameterTemplate, ref parameters);
             AddParameter(context.Url, UrlParameterTemplate, ref parameters);
             AddParameter(context.Title, TitleParameterTemplate, ref parameters);

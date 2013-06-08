@@ -5,7 +5,7 @@
       <ui>
         <navigationtitle>Disqus</navigationtitle>
         <rendering>
-          <notconfiguredmessage>It looks like the Disqus comments add-on is not configured properly.</notconfiguredmessage>
+          <notconfiguredmessage>Disqus comments are disabled or not configured properly.</notconfiguredmessage>
           <configurationlinkmessage>Please go to the Disqus settings to complete the configuration.</configurationlinkmessage>
           <severalthreadsonpage>Unable to render the Disqus comments thread. Probably there are several comments threads placed on this page.</severalthreadsonpage>
         </rendering>
