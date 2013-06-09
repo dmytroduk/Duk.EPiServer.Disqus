@@ -63,28 +63,39 @@ namespace Duk.EPiServer.Disqus.UI.Models
         /// Also registers client resources that should be injected in Edit mode.
         /// </summary>
         /// <param name="renderingModel">The Disqus comments rendering model.</param>
-        /// <returns></returns>
-        public string Render(RenderingModel renderingModel)
+        /// <param name="basicRendering">The basic comments rendering.</param>
+        public void Render(RenderingModel renderingModel, ref StringBuilder basicRendering)
         {
             if (renderingModel == null)
             {
-                return String.Empty;
+                return;
             }
-            var strings = new StringBuilder();
+            if (basicRendering == null)
+            {
+                basicRendering = new StringBuilder();
+            }
+            // wrap comments in div
+            basicRendering.Insert(0, "<div class='disqus-threadContainer'>");
             if (renderingModel.IsEnabled)
             {
+                // Add overlay div to indicate preview discussion
+                basicRendering.Append("<div class='disqus-previewDiscussionOverlay'><span class='disqus-previewDiscussionText'>");
+                basicRendering.Append(_localizationService.GetString("/disqus/ui/rendering/previewmessage"));
+                basicRendering.Append("</span></div>");
+
                 // Hack: to make page reload and display Disqus comments thread in on-page editing mode.
-                strings.Append("<script></script>");
+                basicRendering.Append("<script></script>");
             }
             else
             {
-                strings.AppendFormat(CultureInfo.InvariantCulture,
+                basicRendering.AppendFormat(CultureInfo.InvariantCulture,
                                      "<div class='disqus-disabledMessage'>{0} <a href='{2}' target='_top'>{1}</a></div>",
                                      _localizationService.GetString("/disqus/ui/rendering/notconfiguredmessage"),
                                      _localizationService.GetString("/disqus/ui/rendering/configurationlinkmessage"),
                                      _configurationUrl);
             }
-            return strings.ToString();
+            // closing wrapping div
+            basicRendering.Append("</div>");
         }
 
         /// <summary>

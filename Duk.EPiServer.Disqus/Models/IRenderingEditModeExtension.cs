@@ -1,4 +1,5 @@
-﻿using EPiServer.Framework.Web.Resources;
+﻿using System.Text;
+using EPiServer.Framework.Web.Resources;
 
 namespace Duk.EPiServer.Disqus.Models
 {
@@ -19,7 +20,7 @@ namespace Duk.EPiServer.Disqus.Models
         /// Returns string that should be appended to Disqus comments thread code when page is opened in Edit UI.
         /// </summary>
         /// <param name="renderingModel">The Disqus comments rendering model.</param>
-        /// <returns></returns>
-        string Render(RenderingModel renderingModel);
+        /// <param name="basicRendering">The basic comments rendering.</param>
+        void Render(RenderingModel renderingModel, ref StringBuilder basicRendering);
     }
 }

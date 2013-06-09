@@ -138,14 +138,14 @@ namespace Duk.EPiServer.Disqus.Models
                 return String.Empty;
             }
 
-            var strings = new StringBuilder(renderingModel.ThreadCode);
+            var renderingResult = new StringBuilder(renderingModel.ThreadCode);
             if (context.IsInEditMode && _editModeRendering.Value != null)
             {
                 // Do specific rendering for Edit UI
-                strings.Append(_editModeRendering.Value.Render(renderingModel));
+                _editModeRendering.Value.Render(renderingModel, ref renderingResult);
             }
 
-            return strings.ToString();
+            return renderingResult.ToString();
         }
 
         /// <summary>

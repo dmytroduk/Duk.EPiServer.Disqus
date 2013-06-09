@@ -8,6 +8,7 @@
           <notconfiguredmessage>Disqus kommentarer är inaktiverat eller inte korrekt konfigurerad.</notconfiguredmessage>
           <configurationlinkmessage>Vänligen gå till Disqus inställningar för att slutföra konfigurationen.</configurationlinkmessage>
           <severalthreadsonpage>Kunde inte render Disqus kommentarer tråden. Förmodligen finns det flera kommentarer trådar placeras på denna sida.</severalthreadsonpage>
+          <previewmessage>Detta är en förhandsgranskar. Faktiska kommentarer visas på de publicerade sidor i visningsläge.</previewmessage>
         </rendering>
       </ui>
     </disqus>
