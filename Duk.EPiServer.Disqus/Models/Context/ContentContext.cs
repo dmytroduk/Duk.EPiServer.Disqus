@@ -33,6 +33,14 @@ namespace Duk.EPiServer.Disqus.Models.Context
         public string Url { get; set; }
 
         /// <summary>
+        /// Gets the site URL.
+        /// </summary>
+        /// <value>
+        /// The site URL.
+        /// </value>
+        public string SiteUrl { get; set; }
+
+        /// <summary>
         /// Gets the value that should be used as Disqus title parameter.
         /// This is used when creating the thread on Disqus for the first time.
         /// </summary>
@@ -66,5 +74,16 @@ namespace Duk.EPiServer.Disqus.Models.Context
         /// </value>
         /// <exception cref="System.NotImplementedException"></exception>
         public bool IsInEditMode { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether this page is available for site visitors.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this page is available on site; otherwise, <c>false</c>.
+        /// </value>
+        /// <remarks>
+        /// Usually the  page is considered as available when it is published and is visible on site.
+        /// </remarks>
+        public bool IsAvailableOnSite { get; set; }
     }
 }

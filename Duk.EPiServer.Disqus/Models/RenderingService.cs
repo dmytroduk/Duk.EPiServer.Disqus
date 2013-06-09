@@ -13,6 +13,9 @@ namespace Duk.EPiServer.Disqus.Models
     /// </summary>
     public class RenderingService : IRenderingService
     {
+        private const string PreviewIdentifier = "Preview_F6241C2F-EA1D-4182-9FD9-864D4C178047";
+        private const string PreviewTitle = "Preview";
+
         private readonly IServiceLocator _serviceLocator;
         private readonly Lazy<IRenderingEditModeExtension> _editModeRendering;
         private readonly ICodeBuilder _codeBuilder;
@@ -42,7 +45,7 @@ namespace Duk.EPiServer.Disqus.Models
         public void RegisterClientResources(IRequiredClientResourceList requiredResources)
         {
             var configuration = _configurationProvider.Load();
-            var context = _contextProvider.GetContext();
+            var context = GetContext();
 
             var renderingModel = CreateRenderingModel(configuration, context);
 
@@ -56,7 +59,7 @@ namespace Duk.EPiServer.Disqus.Models
         public string Render()
         {
             var configuration = _configurationProvider.Load();
-            var context = _contextProvider.GetContext();
+            var context = GetContext();
 
             var renderingModel = CreateRenderingModel(configuration, context);
 
@@ -77,7 +80,7 @@ namespace Duk.EPiServer.Disqus.Models
                 return;
             }
 
-            var context = _contextProvider.GetContext();
+            var context = GetContext();
             var renderingModel = CreateRenderingModel(configuration, context);
 
             RegisterClientResources(requiredResources, context, renderingModel);
@@ -89,6 +92,15 @@ namespace Duk.EPiServer.Disqus.Models
                 configuration.RenderingAreas.ToList().ForEach(renderingArea =>
                     requiredResources.RequireHtmlInline(threadCode).AtArea(renderingArea));
             }
+        }
+
+        /// <summary>
+        /// Gets the context.
+        /// </summary>
+        /// <returns></returns>
+        private IContext GetContext()
+        {
+            return CorrectContext(_contextProvider.GetContext());
         }
 
         /// <summary>
@@ -170,9 +182,57 @@ namespace Duk.EPiServer.Disqus.Models
             }
         }
 
+        /// <summary>
+        /// Determines whether Disqus comments are enabled on site.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
+        /// <returns>
+        ///   <c>true</c> if Disqus is enabled; otherwise, <c>false</c>.
+        /// </returns>
         private static bool IsDisqusEnabled(IConfiguration configuration)
         {
             return configuration != null && configuration.Enabled && !String.IsNullOrWhiteSpace(configuration.ShortName); 
+        }
+
+        /// <summary>
+        /// Determines whether actual comments should be displayed on a page.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>
+        ///   <c>true</c> if actual comments should be displayed on a page; otherwise, <c>false</c>.
+        /// </returns>
+        private static bool ShouldDisplayActualComments(IContext context)
+        {
+            return context != null && context.IsAvailableOnSite && !context.IsInEditMode;
+        }
+
+        /// <summary>
+        /// Corrects the context. 
+        /// </summary>
+        /// <param name="currentContext">The current context.</param>
+        /// <returns>Current context if actual comments should be displayed, 
+        /// otherwise returns corrected context in order to render dummy preview discussion.</returns>
+        private static IContext CorrectContext(IContext currentContext)
+        {
+            return ShouldDisplayActualComments(currentContext) ? currentContext : CreatePreviewContext(currentContext);
+        }
+
+        /// <summary>
+        /// Creates the context that should be used to render dummy preview discussion.
+        /// </summary>
+        /// <param name="originalContext">The original context.</param>
+        /// <returns></returns>
+        private static IContext CreatePreviewContext(IContext originalContext)
+        {
+            return new ContentContext
+            {
+                Identifier = PreviewIdentifier,
+                SiteUrl = originalContext.SiteUrl,
+                Url = originalContext.SiteUrl,
+                Title = PreviewTitle,
+                IsAvailableOnSite = originalContext.IsAvailableOnSite,
+                IsInEditMode = originalContext.IsInEditMode
+            };
         }
     }
 }
