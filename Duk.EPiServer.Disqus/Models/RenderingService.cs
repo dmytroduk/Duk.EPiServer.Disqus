@@ -172,14 +172,10 @@ namespace Duk.EPiServer.Disqus.Models
         /// <returns></returns>
         private IRenderingEditModeExtension GetEditModeRenderingExtension()
         {
-            try
-            {
-                return _serviceLocator.GetInstance<IRenderingEditModeExtension>();
-            }
-            catch (ActivationException)
-            {
-                return null;
-            }
+            object renderingEditModeExtension;
+            return _serviceLocator.TryGetExistingInstance(typeof (IRenderingEditModeExtension), out renderingEditModeExtension)
+                       ? renderingEditModeExtension as IRenderingEditModeExtension
+                       : null;
         }
 
         /// <summary>
