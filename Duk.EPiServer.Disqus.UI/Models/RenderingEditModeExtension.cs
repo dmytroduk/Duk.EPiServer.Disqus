@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -37,25 +36,8 @@ namespace Duk.EPiServer.Disqus.UI.Models
         /// <param name="renderingModel">The Disqus comments rendering model.</param>
         public void RegisterClientResources(IRequiredClientResourceList requiredResources, RenderingModel renderingModel)
         {
-            if (renderingModel == null || requiredResources == null)
-            {
-                return;
-            }
-
-            requiredResources.Require("duk-disqus.EditMode");
-
-            if (!renderingModel.IsEnabled)
-            {
-                return;
-            }
-
-            // Hack: output text in Edit mode to indicate thread placeholders that were not used by Disqus.
-            // For example, it can be a case when there are several placeholders on a page.
-            // We have to inject inline CSS here to be able to provide localized message text.
-            var inlineStyle = String.Format(CultureInfo.InvariantCulture, "div#disqus_thread:empty:before {{content: '{0}';}}",
-                                            _localizationService.GetString("/disqus/ui/rendering/severalthreadsonpage"));
-
-            requiredResources.RequireStyleInline(inlineStyle, "duk-disqus.EditMode.severalThreadsIndicator", null);
+            // Require scripts here. 
+            // Styles should be require in client resource register to make sure that they are added in Header area before that area is rendered.
         }
 
         /// <summary>

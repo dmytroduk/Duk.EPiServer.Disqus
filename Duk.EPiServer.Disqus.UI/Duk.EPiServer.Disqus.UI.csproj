@@ -70,6 +70,7 @@
     <Compile Include="Controllers\ConfigurationDataStore.cs" />
     <Compile Include="Controllers\AreaConfigurationDataStore.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Models\EditModeClientResourceRegister.cs" />
     <Compile Include="Models\UiInitializationModule.cs" />
     <Compile Include="Models\RenderingEditModeExtension.cs" />
     <Compile Include="Models\ConfigurationModel.cs" />
