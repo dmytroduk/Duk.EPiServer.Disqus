@@ -1,15 +1,45 @@
-﻿div#disqus_thread:empty:before {
-    transition: content 5s ease, border-style 3s ease;
-    -moz-transition: content 5s ease, border-style 3s ease; /* Firefox 4 */
-    -webkit-transition: content 5s ease, border-style 3s ease; /* Safari and Chrome */
-    -o-transition: content 5s ease, border-style 3s ease; /* Opera */
+﻿@-webkit-keyframes disqus-threadOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-div#disqus_thread:empty:before, .disqus-disabledMessage {
-    display: block;
-    border: #d2691e 1px solid;
-    padding: 10px;
+@-moz-keyframes disqus-threadOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
+
+@keyframes disqus-threadOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+div#disqus_thread {
+    -webkit-animation: disqus-threadOpacity 1.5s forwards linear;
+    -moz-animation: disqus-threadOpacity 1.5s forwards linear;
+    -o-animation: disqus-threadOpacity 1.5s forwards linear;
+    animation: disqus-threadOpacity 1.5s forwards linear;
+}
+
+    div#disqus_thread:empty:before, .disqus-disabledMessage {
+        display: block;
+        border: #d2691e 1px solid;
+        padding: 10px;
+    }
 
 .disqus-threadContainer {
     position: relative;
@@ -27,14 +57,15 @@ div#disqus_thread:empty:before, .disqus-disabledMessage {
     opacity: 0.15;
 }
 
-.disqus-previewDiscussionOverlay:hover {
-    opacity: 0.8;
-}
+    .disqus-previewDiscussionOverlay:hover {
+        opacity: 0.8;
+    }
 
 .disqus-previewDiscussionText {
-    font-size: 40px;    
+    font-size: 40px;
     line-height: 1em;
 }
+
 div#disqus_thread:empty ~ .disqus-previewDiscussionOverlay > .disqus-previewDiscussionText {
     display: none;
 }
