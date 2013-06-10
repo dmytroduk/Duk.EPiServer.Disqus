@@ -75,6 +75,7 @@
     <Compile Include="Models\CommentsBlock.cs" />
     <Compile Include="CommentsControl.cs" />
     <Compile Include="CommentsDynamicContent.cs" />
+    <Compile Include="Models\DisqusIconAttribute.cs" />
     <Compile Include="Models\ICodeBuilder.cs" />
     <Compile Include="Models\Configuration\IConfigurationProvider.cs" />
     <Compile Include="Models\Context\IContext.cs" />
@@ -84,12 +85,11 @@
     <Compile Include="Models\RenderingService.cs" />
     <Compile Include="Models\RenderingModel.cs" />
     <Compile Include="Models\IRenderingService.cs" />
-    <Compile Include="Models\ModuleImageUrlAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\CodeBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClientResources\DisqusBlockIcon.png" />
+    <EmbeddedResource Include="ClientResources\DisqusBlockIcon.png" />
     <None Include="Duk.EPiServer.Disqus.nuspec">
       <SubType>Designer</SubType>
     </None>

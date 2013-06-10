@@ -1,6 +1,4 @@
 ﻿div#disqus_thread:empty:before {
-     border-style: none;
-     content: none;
     transition: content 5s ease, border-style 3s ease;
     -moz-transition: content 5s ease, border-style 3s ease; /* Firefox 4 */
     -webkit-transition: content 5s ease, border-style 3s ease; /* Safari and Chrome */

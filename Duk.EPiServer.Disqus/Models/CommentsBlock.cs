@@ -11,11 +11,7 @@ namespace Duk.EPiServer.Disqus.Models
     [ContentType(GUID = "1B9D9094-F895-41A6-B986-E5E40FC6DEE7", 
         DisplayName = "Disqus comments",
         Description = "Allows to add Disqus comments on a page.")]
-    
-    // Hack: unable to use partial path to the block icon;
-    // have to implement custom attribute to resolve the path in add-on folder.
-    [ModuleImageUrl("Duk.EPiServer.Disqus", "ClientResources/DisqusBlockIcon.png", false)]
-    
+    [DisqusIcon]
     public class CommentsBlock : BlockData
     {
         private const string RegistrationUrl = "https://disqus.com/admin/signup/";
