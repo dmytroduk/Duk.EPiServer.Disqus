@@ -8,7 +8,7 @@
           <notconfiguredmessage>Disqus comments are disabled or not configured properly.</notconfiguredmessage>
           <configurationlinkmessage>Please go to the Disqus settings to complete the configuration.</configurationlinkmessage>
           <severalthreadsonpage>Unable to render the Disqus comments thread. Probably there are several comments threads placed on this page.</severalthreadsonpage>
-          <previewmessage>This is a preview. Actual comments appear on the published pages in view mode.</previewmessage>
+          <previewmessage>This is a preview. Actual comments appear on published pages in view mode.</previewmessage>
         </rendering>
       </ui>
     </disqus>

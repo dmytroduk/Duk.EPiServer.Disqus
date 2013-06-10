@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Disqus comments configuration UI for EPiServer")]
+[assembly: AssemblyTitle("Disqus comments configuration UI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dmytro Duk")]
-[assembly: AssemblyProduct("Disqus comments configuration UI for EPiServer")]
+[assembly: AssemblyProduct("Disqus comments configuration UI")]
 [assembly: AssemblyCopyright("Copyright © Dmytro Duk")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
