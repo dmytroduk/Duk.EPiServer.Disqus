@@ -13,9 +13,9 @@
     <pagetypes>
       <common>
         <!-- Disqus comments block properties -->
-        <property name="DisqusSignupUrl">
-          <caption>Signup on Disqus</caption>
-          <help>Register your site and choose a shortname.</help>
+        <property name="Version">
+          <caption>Version</caption>
+          <help>Disqus comments add-on version.</help>
         </property>
       </common>
     </pagetypes>    

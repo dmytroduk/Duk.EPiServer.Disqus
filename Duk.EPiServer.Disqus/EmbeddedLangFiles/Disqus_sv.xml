@@ -13,9 +13,9 @@
     <pagetypes>
       <common>
         <!-- Disqus comments block properties -->
-        <property name="DisqusSignupUrl">
-          <caption>Registrera på Disqus</caption>
-          <help>Registrera din webbplats och välj ett kortnamn.</help>
+        <property name="Version">
+          <caption>Version</caption>
+          <help>Disquskommentarer tillägg version.</help>
         </property>
       </common>
     </pagetypes>

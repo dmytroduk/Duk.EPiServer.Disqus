@@ -14,21 +14,21 @@ namespace Duk.EPiServer.Disqus.Models
     [DisqusIcon]
     public class CommentsBlock : BlockData
     {
-        private const string RegistrationUrl = "https://disqus.com/admin/signup/";
-
         /// <summary>
-        /// Disqus signup URL. 
+        /// Gets or sets the version.
         /// </summary>
         /// <value>
-        /// <c>true</c> if this instance is enabled; otherwise, <c>false</c>.
+        /// The version.
         /// </value>
-        /// <remarks>This is dummy property that cannot be editable in Edit UI. 
-        /// We have to kepp it in order to make Disqus block "not null" when it is used as content property. 
-        /// Otherwise block is considered as "null" and it is not rendered in view mode.</remarks>
+        /// <remarks>
+        /// This is dummy property that cannot be editable in Edit UI.
+        /// We have to keep it in order to make Disqus block "not null" when it is used as content property.
+        /// Otherwise block is considered as "null" and it is not rendered in view mode.
+        /// </remarks>
         [Editable(false)]
-        [Display(Name = "Signup on Disqus",
-            Description = "Register your site and choose a shortname.")]
-        public virtual string DisqusSignupUrl { get; set; }
+        [Display(Name = "Version",
+            Description = "Disqus comments add-on version.")]
+        public virtual int Version { get; set; }
 
         /// <summary>
         /// Sets the default values for new Disqus comments block.
@@ -37,7 +37,7 @@ namespace Duk.EPiServer.Disqus.Models
         public override void SetDefaultValues(ContentType contentType)
         {
             base.SetDefaultValues(contentType);
-            DisqusSignupUrl = RegistrationUrl;
+            Version = 1;
         }
     }
 }
