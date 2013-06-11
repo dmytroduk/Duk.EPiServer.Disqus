@@ -5,10 +5,10 @@
       <ui>
         <navigationtitle>Disqus</navigationtitle>
         <rendering>
-          <notconfiguredmessage>Disqus kommentarer är inaktiverat eller inte korrekt konfigurerad.</notconfiguredmessage>
-          <configurationlinkmessage>Vänligen gå till Disqus inställningar för att slutföra konfigurationen.</configurationlinkmessage>
-          <severalthreadsonpage>Kunde inte render Disqus kommentarer tråden. Förmodligen finns det flera kommentarer trådar placeras på denna sida.</severalthreadsonpage>
-          <previewmessage>Detta är en förhandsgranskar. Faktiska kommentarer visas på de publicerade sidor i visningsläge.</previewmessage>
+          <notconfiguredmessage>Disquskommentarer är inaktiverade eller inte korrekt konfigurerat.</notconfiguredmessage>
+          <configurationlinkmessage>Vänligen gå till Disqusinställningar för att slutföra konfigurationen.</configurationlinkmessage>
+          <severalthreadsonpage>Kunde inte visa Disquskommentarstråden. Förmodligen finns det flera kommentarstrådar på denna sida.</severalthreadsonpage>
+          <previewmessage>Detta är en förhandsgranskning. Faktiska kommentarer visas i publicerade sidors visningsläge.</previewmessage>
         </rendering>
       </ui>
     </disqus>

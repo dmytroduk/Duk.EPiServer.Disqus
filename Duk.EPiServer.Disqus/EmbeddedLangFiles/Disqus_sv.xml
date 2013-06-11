@@ -5,8 +5,8 @@
     <blocktypes>
       <!-- Disqus comments thread block -->
       <blocktype  name="CommentsBlock">
-        <name>Disqus kommentarer</name>
-        <description>Gör det möjligt att lägga Disqus kommentarer på en sida.</description>
+        <name>Disquskommentarer</name>
+        <description>Gör det möjligt att lägga Disquskommentarer på en sida.</description>
       </blocktype>
     </blocktypes>
 
@@ -15,7 +15,7 @@
         <!-- Disqus comments block properties -->
         <property name="DisqusSignupUrl">
           <caption>Registrera på Disqus</caption>
-          <help>Registrera din webbplats och välja ett kortnamn.</help>
+          <help>Registrera din webbplats och välj ett kortnamn.</help>
         </property>
       </common>
     </pagetypes>
@@ -23,8 +23,8 @@
     <disqus>
 
       <dynamiccontent>
-        <displayname>Disqus kommentarer</displayname>
-        <description>Gör det möjligt att lägga Disqus kommentarer på en sida.</description>
+        <displayname>Disquskommentarer</displayname>
+        <description>Gör det möjligt att lägga Disquskommentarer på en sida.</description>
       </dynamiccontent>
 
     </disqus>

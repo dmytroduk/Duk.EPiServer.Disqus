@@ -1,22 +1,22 @@
 ﻿define({
-    generalSettingsTitle: "Allmänt Disqus inställningar",
+    generalSettingsTitle: "Allmänna Disqusinställningar",
     generalSettingsDescription: "Vänligen registrera dig på ${disqusLink} och välj kortnamn för din webbplats.",
     whatIsAShortname: "Vad är ett kortnamn?",
     shortNameTitle: "Kortnamn",
-    shortNameInvalidMessage: "Disqus kortnamn bör vara en icke-space text som består av bokstäver, siffror, understreck eller bindestreck.",
-    enableTitle: "Aktivera Disqus kommentarer",
+    shortNameInvalidMessage: "Disquskortnamn måste vara icke-blanksteg bestående av bokstäver, siffror, understreck eller bindestreck.",
+    enableTitle: "Aktivera Disquskommentarer",
     
-    adminTitle: "Disqus Admin",
-    adminDescription: "Konfigurera Disqus för din webbplats och hantera kommentarer, diskussion och analys med hjälp av Disqus admin-gränssnittet.",
+    adminTitle: "Disqus admingränssnitt",
+    adminDescription: "Konfigurera Disqus för din webbplats och hantera kommentarer, diskussion och analys med hjälp av Disqus admingränssnitt.",
     manageTitle: "Hantera",
-    moderateCommentsTitle: "Måttliga kommentarer",
+    moderateCommentsTitle: "Granska kommentarer",
     adminSettingsTitle: "Inställningar",
-    analyticsTitle: "Analytics",
-    adminToolsTitle: "Migrera, import och export diskussioner",
+    analyticsTitle: "Statistik",
+    adminToolsTitle: "Migrera, importera och exportera diskussioner",
     
-    areaSettingsTitle: "Lägg Disqus på sidorna i rendering områden",
-    areaSettingsDescription: "Du kan lägga Disqus kommentarer i rendering områden som definieras i dina mallar. Vänligen se detaljer om kimdresurs rendering i ${sdkLink}.",
-    renderingAreasTitle: "Rendering områden namn",
+    areaSettingsTitle: "Lägg Disqus på sidorna i visningsområden",
+    areaSettingsDescription: "Du kan lägga Disquskommentarer i visningsområden som definieras i dina mallar. Vänligen se detaljer om visning av klientresurser i ${sdkLink}.",
+    renderingAreasTitle: "Namn på visningsområden",
 
     saveTitle: "Spara"
 });
