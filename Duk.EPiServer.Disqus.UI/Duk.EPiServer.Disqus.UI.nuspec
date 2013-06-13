@@ -6,11 +6,11 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <projectUrl>http://dmytroduk.com</projectUrl>
+    <projectUrl>http://dmytroduk.com/projects/disqus-for-episerver</projectUrl>
     <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABcCAIAAAAqO+alAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALLSURBVHhe7ZwxTgMxEEVzIi7ABbgAF+ACXIALcAJKGqioqKigoUIUVEhIVBSIigYqquVHKyK0gmh2Yo3j8bNS2pvk5ft57F1Y7JwOvAIILALeg7cQAUAHTWhAAzrX4kGiSTSJpopwEEAdqAN1OCYOQ1AH6kAdeMBBAHWgDtThmDgMQR2oA3XgAQcB1IE6UIdj4jCksjqGzdrT+3D/Npw8DIfXw+55kAR8oWkb9ORnEvfju2HvYhuJpwK94n7zMhxcbRfunKBH4sK9PenODFqsP76WMvFZteyo5KDHaF8+12fdBWixVnFStyzpBXT1XHcEWqzPHqs5pC/QYl2r7OsO9OtnHVk3AFoZnLyObpfbbtUSouZoGlu2dLNcrQHQ67/G/uWS+Kym4jq+Amke9PgzCLcOOuxNc8ISw4J9koAWEYXUzlpldUGIlkvlAT2ytls72B6pQIu1lk1j0xG2JYml+mQDLS7SgqUF1x4JQWuhs7RgTScELflammxeSguW6yQEra9tXBItgEr1yQnaqOlSEC3XAXSQQAAN6J8VzTIxJ31QxzQ+lvLAAZrFMAK0sbyjjp6mfG6ijRsWPfUx98qb9E+4GBoFzRZ8o0TbD5WCbx6mSrT9mFQ3WTbxgGNsHtCzDv7jn11KAloeMJZ0o5iCvaEZ0DxoIZt7cza4sBs90wBolQd/vsRLqnW0+Di3AdqBcs2Q4PJ5tWw2kOiCoDUDaj2a3hfo4Buyv6vAjkDHPzTTI+i6lHtZDKtTzg9auxg9lufYMRcfktbRKjCCz+fW/zYJQQux/oSiVhn3H+5UoLUZkY6Dn140SqZt0NqFC64UUWVXbUS8FWcdsz5r050rJ7ppdrM+PKCDij9AA5r/qTTLTXSm6giSBqABncvOJJpEk2hKCDcBNixBAgE0oHOZmkSTaBLtXnl7Hog6UAfq6NkA7u+OOlBHLnV8A9vK4GQ4ZbqlAAAAAElFTkSuQmCC</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>User interface to configure Disqus comments.</description>
-    <releaseNotes>First version of Disqus integration add-on. User interface to configure Disqus comments on your website.</releaseNotes>
+    <releaseNotes>This is the first version of Disqus integration for EPiServer CMS. It provides user interface to configure Disqus comments on your website.</releaseNotes>
     <copyright>Dmytro Duk</copyright>
     <tags>EPiServerModulePackage ThirdPartyAddOn Disqus Comments Social</tags>
     <dependencies>
