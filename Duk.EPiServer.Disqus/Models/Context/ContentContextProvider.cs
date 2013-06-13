@@ -1,5 +1,6 @@
 ﻿using System;
 using EPiServer;
+using EPiServer.Configuration;
 using EPiServer.Core;
 using EPiServer.Editor;
 using EPiServer.Web.Routing;
@@ -49,16 +50,16 @@ namespace Duk.EPiServer.Disqus.Models.Context
             {
                 IsInEditMode = PageEditing.PageIsInEditMode
             };
+            
+            Settings siteSettings;
 
-            // TODO: check why page can be null
             if (_pageRouteHelper.Page != null)
             {
                 context.Identifier = _pageRouteHelper.Page.ContentGuid.ToString();
 
                 context.IsAvailableOnSite = IsAvailableOnSite(_pageRouteHelper.Page);
 
-                var siteSettings = _enterpriseSettings.GetSettingsFromContent(_pageRouteHelper.Page.PageLink, true);
-                context.SiteUrl = siteSettings != null ? siteSettings.SiteUrl.ToString() : null;
+                siteSettings = _enterpriseSettings.GetSettingsFromContent(_pageRouteHelper.Page.PageLink, true);
 
                 if (context.IsAvailableOnSite && !string.IsNullOrWhiteSpace(context.SiteUrl))
                 {
@@ -66,6 +67,13 @@ namespace Duk.EPiServer.Disqus.Models.Context
                     context.Url = !string.IsNullOrWhiteSpace(externalUrl) ? externalUrl : null;
                 }
             }
+            else
+            {
+                context.IsAvailableOnSite = false;
+                siteSettings = Settings.Instance;
+            }
+
+            context.SiteUrl = siteSettings != null ? siteSettings.SiteUrl.ToString() : null;
 
             return context;
         }
