@@ -106,7 +106,7 @@
     <PropertyGroup>
       <NuGetExePath>..\msbuild\Tools\NuGet.exe</NuGetExePath>
     </PropertyGroup>
-    <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -OutputDirectory $(ProjectDir)..\packages" Condition="Exists('$(NuGetExePath)')" />
+    <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -Properties Configuration=$(Configuration) -OutputDirectory $(ProjectDir)..\packages" Condition="Exists('$(NuGetExePath)')" />
   </Target>
   <Target Name="CopyOnTestSites">
     <PropertyGroup>
