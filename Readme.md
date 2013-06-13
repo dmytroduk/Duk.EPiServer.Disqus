@@ -8,7 +8,7 @@ Available localization: English and Swedish.
 
 Basic installation scenario
 ------------
-1.	Signup on Disqus and choose a shortname for your site
+1.	Signup on [Disqus](https://disqus.com/admin/signup/) and choose a shortname for your site
 2.	Install add-ons on your site
 3.	In Disqus configuration UI set shortname and enable Disqus 
 4.	Start adding comments on pages
