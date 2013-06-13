@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Duk.EPiServer.Disqus.UI", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{738FF652-7F92-4D63-A59D-94D2BDC7EFBB}"
 	ProjectSection(SolutionItems) = preProject
+		License.md = License.md
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject

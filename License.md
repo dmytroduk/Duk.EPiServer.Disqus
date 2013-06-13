@@ -1,0 +1,3 @@
+Disqus for EPiServer - License
+=====================================
+To be defined...
