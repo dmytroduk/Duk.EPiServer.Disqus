@@ -11,6 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbuild", "msbuild", "{1C777183-B8A6-46DD-88F1-78B2867CFAB3}"
+	ProjectSection(SolutionItems) = preProject
+		msbuild\Shared.targets = msbuild\Shared.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,5 +33,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C777183-B8A6-46DD-88F1-78B2867CFAB3} = {738FF652-7F92-4D63-A59D-94D2BDC7EFBB}
 	EndGlobalSection
 EndGlobal
