@@ -22,7 +22,7 @@ Usage scenarios
 
 Development environment
 ------------
-Create msbuild folder in the solution root directory. Create 2 subfolders inside msbuild directory: Dependencies and Tools.
+Create 2 subfolders inside msbuild directory: Dependencies and Tools.
 
 Copy required EPiServer assemblies to msbuild\Dependencies folder:
 - EPiServer.BaseLibrary
