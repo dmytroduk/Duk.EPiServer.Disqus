@@ -57,9 +57,7 @@ namespace Duk.EPiServer.Disqus.UI.Controllers
             configuration.Enabled = configurationModel.Enabled;
             
             _configurationProvider.Save(configuration);
-
-            System.Threading.Thread.Sleep(3000);
-            
+           
             return Rest(configurationModel);
         }
 
