@@ -1,22 +1,20 @@
 Disqus for EPiServer
 =====================================
-Disqus for EPiServer is [Disqus platform](http://disqus.com/for-websites/) integration for [EPiServer](http://episerver.com) based websites. It consists of several add-ons which enable Disqus comments on pages and provide user interface for configuration.
+[Disqus for EPiServer](http://dmytroduk.com/projects/disqus-for-episerver) is [Disqus platform](http://disqus.com/for-websites/) integration for [EPiServer](http://episerver.com) based websites. It consists of several add-ons which enable Disqus comments on pages and provide user interface for configuration.
 
-Add-ons are free.
-
-Available localization: English and Swedish.
+Please refer documentation on the [project page](http://dmytroduk.com/projects/disqus-for-episerver) for more information about add-ons installation, discussion settings and how Disqus comments can be added on pages.
 
 Basic installation scenario
 ------------
 1.	Signup on [Disqus](https://disqus.com/admin/signup/) and choose a shortname for your site
 2.	Install add-ons on your site
-3.	In Disqus configuration UI set shortname and enable Disqus 
+3.	Set shortname and enable discussions using Disqus configuration UI 
 4.	Start adding comments on pages
 
 Usage scenarios
 ------------
-- Adding comments block on a page (editors, admins)
-- Adding comments as dynamic content (editors, admins)
+- Adding comments block on a page (editors)
+- Adding comments as dynamic content (editors)
 - Displaying comments in specified rendering areas on a page (developers)
 - Using comments block as a page property and rendering it in a template (geeky developers)
 
