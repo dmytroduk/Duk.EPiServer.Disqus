@@ -24,7 +24,6 @@ namespace Duk.EPiServer.Disqus
                 ce.For<IConfigurationProvider>().Use<DatabaseConfigurationProvider>();
                 ce.For<IContextProvider>().Use<ContentContextProvider>();
                 ce.For<IRenderingService>().Use<RenderingService>();
-                ce.For<IRenderingService>().Use<RenderingService>();
                 ce.For<ICodeBuilder>().Use<CodeBuilder>();
             });
         }

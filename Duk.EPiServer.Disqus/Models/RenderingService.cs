@@ -118,7 +118,7 @@ namespace Duk.EPiServer.Disqus.Models
 
             requiredResources.RequireScriptInline(renderingModel.LoaderScript, "duk-disqus.Loader", null).AtFooter();
 
-            if (context.IsInEditMode && _editModeRendering.Value != null)
+            if ((context.IsInEditMode || context.IsInPreviewMode) && _editModeRendering.Value != null)
             {
                 // Do specific injections for Edit UI
                 _editModeRendering.Value.RegisterClientResources(requiredResources, renderingModel);
@@ -139,7 +139,7 @@ namespace Duk.EPiServer.Disqus.Models
             }
 
             var renderingResult = new StringBuilder(renderingModel.ThreadCode);
-            if (context.IsInEditMode && _editModeRendering.Value != null)
+            if ((context.IsInEditMode || context.IsInPreviewMode) && _editModeRendering.Value != null)
             {
                 // Do specific rendering for Edit UI
                 _editModeRendering.Value.Render(renderingModel, ref renderingResult);
@@ -199,7 +199,7 @@ namespace Duk.EPiServer.Disqus.Models
         /// </returns>
         private static bool ShouldDisplayActualComments(IContext context)
         {
-            return context != null && context.IsAvailableOnSite && !context.IsInEditMode;
+            return context != null && context.IsAvailableOnSite && !context.IsInEditMode && !context.IsInPreviewMode;
         }
 
         /// <summary>
@@ -227,7 +227,8 @@ namespace Duk.EPiServer.Disqus.Models
                 Url = originalContext.SiteUrl,
                 Title = PreviewTitle,
                 IsAvailableOnSite = originalContext.IsAvailableOnSite,
-                IsInEditMode = originalContext.IsInEditMode
+                IsInEditMode = originalContext.IsInEditMode,
+                IsInPreviewMode = originalContext.IsInPreviewMode
             };
         }
     }

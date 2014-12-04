@@ -186,6 +186,7 @@
     </None>
     <Content Include="ClientResources\AreaSettings.js" />
     <Content Include="ClientResources\AdminLinks.js" />
+    <Content Include="ClientResources\PreviewMode.css" />
     <Content Include="ClientResources\EditMode.css" />
     <Content Include="ClientResources\GeneralSettingsViewModel.js" />
     <Content Include="ClientResources\AreaSettingsViewModel.js" />

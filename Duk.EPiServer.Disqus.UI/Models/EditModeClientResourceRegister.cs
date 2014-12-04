@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using System.Web;
-using EPiServer.Editor;
+using Duk.EPiServer.Disqus.Models.Context;
 using EPiServer.Framework.Localization;
 using EPiServer.Framework.Web.Resources;
 
@@ -13,14 +13,17 @@ namespace Duk.EPiServer.Disqus.UI.Models
     public class EditModeClientResourceRegister : IClientResourceRegister
     {
         private readonly LocalizationService _localizationService;
+        private readonly IContextProvider _contextProvider;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EditModeClientResourceRegister"/> class.
+        /// Initializes a new instance of the <see cref="EditModeClientResourceRegister" /> class.
         /// </summary>
         /// <param name="localizationService">The localization service.</param>
-        public EditModeClientResourceRegister(LocalizationService localizationService)
+        /// <param name="contextProvider">The context provider.</param>
+        public EditModeClientResourceRegister(LocalizationService localizationService, IContextProvider contextProvider)
         {
             _localizationService = localizationService;
+            _contextProvider = contextProvider;
         }
 
         /// <summary>
@@ -30,20 +33,28 @@ namespace Duk.EPiServer.Disqus.UI.Models
         /// <param name="context">The context.</param>
         public void RegisterResources(IRequiredClientResourceList requiredResources, HttpContextBase context)
         {
-            if (!PageEditing.PageIsInEditMode)
+            var renderingContext = _contextProvider.GetContext();
+
+            if (!renderingContext.IsInPreviewMode && !renderingContext.IsInEditMode)
             {
                 return;
             }
 
-            requiredResources.Require("duk-disqus.EditMode");
+            if (renderingContext.IsInEditMode)
+            {
+                requiredResources.Require("duk-disqus.EditMode");
 
-            // Hack: output text in Edit mode to indicate thread placeholders that were not used by Disqus.
-            // For example, it can be a case when there are several placeholders on a page.
-            // We have to inject inline CSS here to be able to provide localized message text.
-            var inlineStyle = string.Format(CultureInfo.InvariantCulture, "div#disqus_thread:empty:before {{content: '{0}';}}",
-                                            _localizationService.GetString("/disqus/ui/rendering/severalthreadsonpage"));
+                // Hack: output text in Edit mode to indicate thread placeholders that were not used by Disqus.
+                // For example, it can be a case when there are several placeholders on a page.
+                // We have to inject inline CSS here to be able to provide localized message text.
+                var inlineStyle = string.Format(CultureInfo.InvariantCulture, "div#disqus_thread:empty:before {{content: '{0}';}}",
+                                                _localizationService.GetString("/disqus/ui/rendering/severalthreadsonpage"));
 
-            requiredResources.RequireStyleInline(inlineStyle, "duk-disqus.EditMode.severalThreadsIndicator", null);
+                requiredResources.RequireStyleInline(inlineStyle, "duk-disqus.EditMode.severalThreadsIndicator", null);
+            }
+
+            // Inject the following styles for Edit and Preview modes
+            requiredResources.Require("duk-disqus.PreviewMode");
         }
     }
 }
