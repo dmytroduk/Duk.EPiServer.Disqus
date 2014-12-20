@@ -1,10 +1,13 @@
 ﻿using System.Globalization;
+using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Duk.EPiServer.Disqus.Models;
 using EPiServer.Framework.Localization;
 using EPiServer.Framework.Web.Resources;
+using EPiServer.ServiceLocation;
 using EPiServer.Shell.Modules;
 
 namespace Duk.EPiServer.Disqus.UI.Models
@@ -16,6 +19,7 @@ namespace Duk.EPiServer.Disqus.UI.Models
     {
         private readonly string _configurationUrl;
         private readonly LocalizationService _localizationService;
+        private readonly HttpContextBase _context;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RenderingEditModeExtension" /> class.
@@ -27,6 +31,7 @@ namespace Duk.EPiServer.Disqus.UI.Models
         {
             _configurationUrl = GetConfigurationUrl(requestContext, moduleTable);
             _localizationService = localizationService;
+            _context = requestContext.HttpContext;
         }
 
         /// <summary>
@@ -38,6 +43,24 @@ namespace Duk.EPiServer.Disqus.UI.Models
         {
             // Require scripts here. 
             // Styles should be require in client resource register to make sure that they are added in Header area before that area is rendered.
+
+            // HACK: Ugly fallback to register client resources (styles) if it was not registered using IClientResourceRegister.
+            // It may happen when templates don't meet the standard requirements for EPiServer CMS page templates 
+            // and don't require/render client resources. For example: block preview template in Alloy.
+            // Open question: Should we solve it here?
+
+            // Check if resources were registered (normal flow).
+            if (EditModeClientResourceRegister.AreRegistered(_context))
+            {
+                return;
+            }
+            // Fallback: register now
+            var register = ServiceLocator.Current.GetAllInstances<IClientResourceRegister>()
+                .FirstOrDefault(r => typeof (EditModeClientResourceRegister) == r.GetType());
+            if (register != null)
+            {
+                register.RegisterResources(requiredResources, _context);
+            }
         }
 
         /// <summary>

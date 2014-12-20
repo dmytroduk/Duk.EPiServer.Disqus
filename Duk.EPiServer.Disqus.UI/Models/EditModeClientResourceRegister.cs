@@ -15,6 +15,8 @@ namespace Duk.EPiServer.Disqus.UI.Models
         private readonly LocalizationService _localizationService;
         private readonly IContextProvider _contextProvider;
 
+        public const string ResourcesAreRegisteredKey = "Duk.EPiServer.Disqus.StylesAreRegistered";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="EditModeClientResourceRegister" /> class.
         /// </summary>
@@ -55,6 +57,19 @@ namespace Duk.EPiServer.Disqus.UI.Models
 
             // Inject the following styles for Edit and Preview modes
             requiredResources.Require("duk-disqus.PreviewMode");
+
+            context.Items[ResourcesAreRegisteredKey] = true;
+        }
+
+        /// <summary>
+        /// Determines whether resources are registered.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns></returns>
+        public static bool AreRegistered(HttpContextBase context)
+        {
+            var registered = context.Items[ResourcesAreRegisteredKey];
+            return registered != null && (bool) registered;
         }
     }
 }
