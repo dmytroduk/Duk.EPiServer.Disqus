@@ -1,4 +1,8 @@
-﻿.disqus-previewDiscussionOverlay {
+﻿.disqus-threadContainer {
+    position: relative;
+}
+
+.disqus-previewDiscussionOverlay {
     width: 100%;
     height: 100%;
     position: absolute;

@@ -40,7 +40,3 @@ div#disqus_thread:empty:before, .disqus-disabledMessage {
     border: #d2691e 1px solid;
     padding: 10px;
 }
-
-.disqus-threadContainer {
-    position: relative;
-}
