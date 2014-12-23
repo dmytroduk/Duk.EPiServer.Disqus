@@ -35,37 +35,8 @@ div#disqus_thread {
     animation: disqus-threadOpacity 1.5s forwards linear;
 }
 
-    div#disqus_thread:empty:before, .disqus-disabledMessage {
-        display: block;
-        border: #d2691e 1px solid;
-        padding: 10px;
-    }
-
-.disqus-threadContainer {
-    position: relative;
-}
-
-.disqus-previewDiscussionOverlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    text-align: center;
-    margin: 5px 10px;
-    opacity: 0.15;
-}
-
-    .disqus-previewDiscussionOverlay:hover {
-        opacity: 0.8;
-    }
-
-.disqus-previewDiscussionText {
-    font-size: 40px;
-    line-height: 1em;
-}
-
-div#disqus_thread:empty ~ .disqus-previewDiscussionOverlay > .disqus-previewDiscussionText {
-    display: none;
+div#disqus_thread:empty:before, .disqus-disabledMessage {
+    display: block;
+    border: #d2691e 1px solid;
+    padding: 10px;
 }

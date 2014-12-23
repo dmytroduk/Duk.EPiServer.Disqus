@@ -76,6 +76,14 @@ namespace Duk.EPiServer.Disqus.Models.Context
         public bool IsInEditMode { get; set; }
 
         /// <summary>
+        /// Gets a value indicating whether a page is opened in Preview mode.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if page is opened in Preview mode; otherwise, <c>false</c>.
+        /// </value>
+        public bool IsInPreviewMode { get; set; }
+
+        /// <summary>
         /// Gets a value indicating whether this page is available for site visitors.
         /// </summary>
         /// <value>

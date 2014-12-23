@@ -15,10 +15,10 @@
     <copyright>Dmytro Duk</copyright>
     <tags>EPiServerModulePackage ThirdPartyAddOn Disqus Comments Social</tags>
     <dependencies>
-      <dependency id="EPiServer" version="[7.0,8.0)" />
-      <dependency id="EPiServer.Shell" version="[7.0,8.0)" />
-      <dependency id="Shell" version="[1.0,3.0)" />
-      <dependency id="Duk.EPiServer.Disqus" version="[1.0,2.0)" />
+      <dependency id="EPiServer" version="[7.5,8.0)" />
+      <dependency id="EPiServer.Shell" version="[7.5,8.0)" />
+      <dependency id="EPiServer.Shell.UI" version="[3.0,8.0)" />
+      <dependency id="Duk.EPiServer.Disqus" version="[1.1,2.0)" />
     </dependencies>
   </metadata>
 </package>

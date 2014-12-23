@@ -3,7 +3,9 @@ using EPiServer;
 using EPiServer.Configuration;
 using EPiServer.Core;
 using EPiServer.Editor;
+using EPiServer.Web;
 using EPiServer.Web.Routing;
+using EPiServer.Web.Routing.Segments;
 
 namespace Duk.EPiServer.Disqus.Models.Context
 {
@@ -48,7 +50,8 @@ namespace Duk.EPiServer.Disqus.Models.Context
         {
             var context = new ContentContext
             {
-                IsInEditMode = PageEditing.PageIsInEditMode
+                IsInEditMode = PageEditing.PageIsInEditMode,
+                IsInPreviewMode = RequestSegmentContext.CurrentContextMode == ContextMode.Preview
             };
             
             Settings siteSettings;

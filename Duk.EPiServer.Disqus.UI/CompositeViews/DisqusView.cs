@@ -35,6 +35,17 @@ namespace Duk.EPiServer.Disqus.UI.CompositeViews
         }
 
         /// <summary>
+        /// Defines a default context for the view, for instance the start page for the CMS home view.
+        /// </summary>
+        /// <remarks>
+        /// Set to null if the view should not have a default context.
+        /// </remarks>
+        public string DefaultContext
+        {
+            get { return null; }
+        }
+
+        /// <summary>
         /// Gets the Disqus UI root container.
         /// </summary>
         /// <value>
