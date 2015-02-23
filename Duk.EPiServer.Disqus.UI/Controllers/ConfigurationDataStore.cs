@@ -20,11 +20,7 @@ namespace Duk.EPiServer.Disqus.UI.Controllers
         /// Initializes a new instance of the <see cref="ConfigurationDataStore"/> class.
         /// </summary>
         /// <param name="configurationProvider">The configuration provider.</param>
-        /// <param name="valueProviders">The value providers.</param>
-        /// <param name="serializerFactory">The serializer factory.</param>
-        public ConfigurationDataStore(IConfigurationProvider configurationProvider,
-            IEnumerable<IRestControllerValueProvider> valueProviders, IObjectSerializerFactory serializerFactory)
-            : base(valueProviders, serializerFactory)
+        public ConfigurationDataStore(IConfigurationProvider configurationProvider)
         {
             _configurationProvider = configurationProvider;
         }

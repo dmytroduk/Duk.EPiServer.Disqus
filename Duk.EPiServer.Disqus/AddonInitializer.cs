@@ -83,8 +83,7 @@ namespace Duk.EPiServer.Disqus
         public override void AfterInstall()
         {
             var blockType = ContentTypeRepository.Load<CommentsBlock>();
-            var defaultDisqusBlock = ContentRepository.GetDefault<IContent>(ContentReference.GlobalBlockFolder, blockType.ID,
-                                                              LanguageSelectorFactory.Create(ContentLanguage.PreferredCulture.Name));
+            var defaultDisqusBlock = ContentRepository.GetDefault<IContent>(ContentReference.GlobalBlockFolder, blockType.ID, ContentLanguage.PreferredCulture);
             defaultDisqusBlock.Name = "Disqus comments";
             ContentRepository.Save(defaultDisqusBlock, SaveAction.Publish, AccessLevel.NoAccess);
         }

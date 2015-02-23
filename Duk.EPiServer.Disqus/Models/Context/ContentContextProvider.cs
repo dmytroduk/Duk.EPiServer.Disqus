@@ -105,7 +105,7 @@ namespace Duk.EPiServer.Disqus.Models.Context
         private string CreateExternalUrl(PageData pageData, string siteUrl)
         {
             // TODO: always resolve path in view mode
-            var pagePath = _urlResolver.GetVirtualPath(pageData.PageLink, pageData.LanguageID);
+            var pagePath = _urlResolver.GetVirtualPath(pageData.PageLink, pageData.LanguageID).VirtualPath;
             var pagePathUrlBuilder = new UrlBuilder(pagePath);
 
             var uriBuilder = new UrlBuilder(siteUrl)
