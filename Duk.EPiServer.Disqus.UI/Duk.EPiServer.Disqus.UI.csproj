@@ -192,26 +192,26 @@
     <None Include="Duk.EPiServer.Disqus.UI.nuspec">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="ClientResources\AreaSettings.js" />
-    <Content Include="ClientResources\AdminLinks.js" />
-    <Content Include="ClientResources\PreviewMode.css" />
-    <Content Include="ClientResources\EditMode.css" />
-    <Content Include="ClientResources\GeneralSettingsViewModel.js" />
-    <Content Include="ClientResources\AreaSettingsViewModel.js" />
-    <Content Include="ClientResources\main.js" />
-    <Content Include="ClientResources\nls\Settings.js" />
-    <Content Include="ClientResources\nls\sv\Settings.js" />
-    <Content Include="ClientResources\NotificationList.js" />
-    <Content Include="ClientResources\Settings.css" />
-    <Content Include="ClientResources\SettingsSection.js" />
-    <Content Include="ClientResources\templates\AreaSettings.htm" />
-    <Content Include="ClientResources\templates\AdminLinks.htm" />
-    <Content Include="ClientResources\templates\SettingsSection.htm" />
-    <Content Include="ClientResources\_OperationNotifier.js" />
+    <None Include="ClientResources\AreaSettings.js" />
+    <None Include="ClientResources\AdminLinks.js" />
+    <None Include="ClientResources\PreviewMode.css" />
+    <None Include="ClientResources\EditMode.css" />
+    <None Include="ClientResources\GeneralSettingsViewModel.js" />
+    <None Include="ClientResources\AreaSettingsViewModel.js" />
+    <None Include="ClientResources\main.js" />
+    <None Include="ClientResources\nls\Settings.js" />
+    <None Include="ClientResources\nls\sv\Settings.js" />
+    <None Include="ClientResources\NotificationList.js" />
+    <None Include="ClientResources\Settings.css" />
+    <None Include="ClientResources\SettingsSection.js" />
+    <None Include="ClientResources\templates\AreaSettings.htm" />
+    <None Include="ClientResources\templates\AdminLinks.htm" />
+    <None Include="ClientResources\templates\SettingsSection.htm" />
+    <None Include="ClientResources\_OperationNotifier.js" />
     <EmbeddedResource Include="EmbeddedLangFiles\DisqusUI_sv.xml" />
-    <Content Include="module.config">
+    <None Include="module.config">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -220,10 +220,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClientResources\DisqusInitializer.js" />
-    <Content Include="ClientResources\RootContainer.js" />
-    <Content Include="ClientResources\GeneralSettings.js" />
-    <Content Include="ClientResources\templates\GeneralSettings.htm" />
+    <None Include="ClientResources\DisqusInitializer.js" />
+    <None Include="ClientResources\RootContainer.js" />
+    <None Include="ClientResources\GeneralSettings.js" />
+    <None Include="ClientResources\templates\GeneralSettings.htm" />
     <EmbeddedResource Include="EmbeddedLangFiles\DisqusUI_en.xml" />
   </ItemGroup>
   <ItemGroup />

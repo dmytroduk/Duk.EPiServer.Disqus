@@ -21,4 +21,9 @@
       <dependency id="EPiServer.Packaging" version="[3.2.1,4.0)" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="bin\Release\$id$.dll" target="lib\net45" />
+    <file src="ClientResources\**\*.*" target="content\modules\_protected\$id$\ClientResources" />
+    <file src="module.config" target="content\modules\_protected\$id$" />
+  </files>
 </package>

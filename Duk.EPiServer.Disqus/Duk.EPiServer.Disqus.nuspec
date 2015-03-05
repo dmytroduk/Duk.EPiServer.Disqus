@@ -20,4 +20,8 @@
       <dependency id="EPiServer.Packaging" version="[3.2.1,4.0)" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="bin\Release\$id$.dll" target="lib\net45" />
+    <file src="module.config" target="content\modules\$id$" />
+  </files>
 </package>
