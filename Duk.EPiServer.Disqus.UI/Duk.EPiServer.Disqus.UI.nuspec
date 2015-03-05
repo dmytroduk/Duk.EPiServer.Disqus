@@ -7,18 +7,23 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <projectUrl>http://dmytroduk.com/projects/disqus-for-episerver</projectUrl>
-    <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAABcCAIAAAAqO+alAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALLSURBVHhe7ZwxTgMxEEVzIi7ABbgAF+ACXIALcAJKGqioqKigoUIUVEhIVBSIigYqquVHKyK0gmh2Yo3j8bNS2pvk5ft57F1Y7JwOvAIILALeg7cQAUAHTWhAAzrX4kGiSTSJpopwEEAdqAN1OCYOQ1AH6kAdeMBBAHWgDtThmDgMQR2oA3XgAQcB1IE6UIdj4jCksjqGzdrT+3D/Npw8DIfXw+55kAR8oWkb9ORnEvfju2HvYhuJpwK94n7zMhxcbRfunKBH4sK9PenODFqsP76WMvFZteyo5KDHaF8+12fdBWixVnFStyzpBXT1XHcEWqzPHqs5pC/QYl2r7OsO9OtnHVk3AFoZnLyObpfbbtUSouZoGlu2dLNcrQHQ67/G/uWS+Kym4jq+Amke9PgzCLcOOuxNc8ISw4J9koAWEYXUzlpldUGIlkvlAT2ytls72B6pQIu1lk1j0xG2JYml+mQDLS7SgqUF1x4JQWuhs7RgTScELflammxeSguW6yQEra9tXBItgEr1yQnaqOlSEC3XAXSQQAAN6J8VzTIxJ31QxzQ+lvLAAZrFMAK0sbyjjp6mfG6ijRsWPfUx98qb9E+4GBoFzRZ8o0TbD5WCbx6mSrT9mFQ3WTbxgGNsHtCzDv7jn11KAloeMJZ0o5iCvaEZ0DxoIZt7cza4sBs90wBolQd/vsRLqnW0+Di3AdqBcs2Q4PJ5tWw2kOiCoDUDaj2a3hfo4Buyv6vAjkDHPzTTI+i6lHtZDKtTzg9auxg9lufYMRcfktbRKjCCz+fW/zYJQQux/oSiVhn3H+5UoLUZkY6Dn140SqZt0NqFC64UUWVXbUS8FWcdsz5r050rJ7ppdrM+PKCDij9AA5r/qTTLTXSm6giSBqABncvOJJpEk2hKCDcBNixBAgE0oHOZmkSTaBLtXnl7Hog6UAfq6NkA7u+OOlBHLnV8A9vK4GQ4ZbqlAAAAAElFTkSuQmCC</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/dmytroduk/Duk.EPiServer.Disqus/episerver-8-rebuild/msbuild/Tools/icon.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://github.com/dmytroduk/Duk.EPiServer.Disqus/blob/master/License.md</licenseUrl>    
-    <description>User interface to configure Disqus comments.</description>
-    <releaseNotes>This is the first version of Disqus integration for EPiServer CMS. It provides user interface to configure Disqus comments on your website.</releaseNotes>
+    <description>User interface to configure Disqus comments on EPiServer-based websites.</description>
+    <releaseNotes>Built for EPiServer CMS 8.</releaseNotes>
     <copyright>Dmytro Duk</copyright>
-    <tags>EPiServerModulePackage ThirdPartyAddOn Disqus Comments Social</tags>
+    <tags>EPiServerModulePackage ThirdPartyAddOn Disqus Comments Social UI</tags>
     <dependencies>
-      <dependency id="EPiServer" version="[7.5,8.0)" />
-      <dependency id="EPiServer.Shell" version="[7.5,8.0)" />
-      <dependency id="EPiServer.Shell.UI" version="[3.0,8.0)" />
-      <dependency id="Duk.EPiServer.Disqus" version="[1.1,2.0)" />
+      <dependency id="EPiServer.CMS.Core" version="[8,9)" />
+      <dependency id="EPiServer.Framework" version="[8,9)" />
+      <dependency id="Duk.EPiServer.Disqus" version="[1.2,2.0)" />
+      <dependency id="EPiServer.Packaging" version="[3.2.1,4.0)" />
     </dependencies>
   </metadata>
+  <files>
+    <file src="bin\Release\$id$.dll" target="lib\net45" />
+    <file src="ClientResources\**\*.*" target="content\modules\_protected\$id$\ClientResources" />
+    <file src="module.config" target="content\modules\_protected\$id$" />
+  </files>
 </package>
