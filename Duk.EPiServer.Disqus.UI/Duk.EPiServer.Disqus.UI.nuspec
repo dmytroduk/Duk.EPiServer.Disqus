@@ -7,7 +7,7 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <projectUrl>http://dmytroduk.com/projects/disqus-for-episerver</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/dmytroduk/Duk.EPiServer.Disqus/episerver-8-rebuild/msbuild/Tools/icon.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/dmytroduk/Duk.EPiServer.Disqus/master/msbuild/Tools/icon.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://github.com/dmytroduk/Duk.EPiServer.Disqus/blob/master/License.md</licenseUrl>    
     <description>User interface to configure Disqus comments on EPiServer-based websites.</description>

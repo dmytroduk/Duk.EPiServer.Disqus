@@ -14,6 +14,6 @@ Basic installation scenario
 Usage scenarios
 ------------
 - Adding comments block on a page (editors)
-- Adding comments as dynamic content (editors)
+- Adding comments as dynamic content (editors, EPiServer 7 only)
 - Displaying comments in specified rendering areas on a page (developers)
-- Using comments block as a page property and rendering it in a template (geeky developers)
+- Using comments block as a content property and rendering it in a template (developers)

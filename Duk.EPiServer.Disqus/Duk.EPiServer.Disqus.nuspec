@@ -7,7 +7,7 @@
     <authors>$author$</authors>
     <owners>$author$</owners>
     <projectUrl>http://dmytroduk.com/projects/disqus-for-episerver</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/dmytroduk/Duk.EPiServer.Disqus/episerver-8-rebuild/msbuild/Tools/icon.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/dmytroduk/Duk.EPiServer.Disqus/master/msbuild/Tools/icon.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://github.com/dmytroduk/Duk.EPiServer.Disqus/blob/master/License.md</licenseUrl>
     <description>Disqus integration for EPiServer-based websites. This core module enables adding Disqus comments on CMS pages using content properties, blocks, dynamic content and by placing discussions in rendering areas. User interface to configure Disqus comments can be added on website by installing $id$.UI module.</description>
