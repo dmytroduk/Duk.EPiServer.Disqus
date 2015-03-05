@@ -100,12 +100,13 @@
     <Reference Include="EPiServer.Logging.Log4Net">
       <HintPath>..\packages\EPiServer.Logging.Log4Net.1.0.0\lib\net45\EPiServer.Logging.Log4Net.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.Packaging, Version=3.1.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+    <Reference Include="EPiServer.Packaging, Version=3.2.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EPiServer.Packaging.3.1.0\lib\net40\EPiServer.Packaging.dll</HintPath>
+      <HintPath>..\packages\EPiServer.Packaging.3.2.1\lib\net45\EPiServer.Packaging.dll</HintPath>
     </Reference>
-    <Reference Include="EPiServer.Packaging.CmdAPI">
-      <HintPath>..\packages\EPiServer.Packaging.3.1.0\lib\net40\EPiServer.Packaging.CmdAPI.dll</HintPath>
+    <Reference Include="EPiServer.Packaging.CmdAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EPiServer.Packaging.3.2.1\lib\net45\EPiServer.Packaging.CmdAPI.dll</HintPath>
     </Reference>
     <Reference Include="EPiServer.Shell, Version=8.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -202,9 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ClientResources\DisqusBlockIcon.png" />
-    <None Include="app.config">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Duk.EPiServer.Disqus.nuspec">
       <SubType>Designer</SubType>
     </None>
@@ -214,8 +212,10 @@
     <EmbeddedResource Include="EmbeddedLangFiles\Disqus_sv.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Content Include="module.config" />
     <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="web.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

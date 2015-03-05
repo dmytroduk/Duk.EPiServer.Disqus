@@ -11,13 +11,13 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://github.com/dmytroduk/Duk.EPiServer.Disqus/blob/master/License.md</licenseUrl>
     <description>Enables Disqus comments on your site.</description>
-    <releaseNotes>This is the first version of Disqus integration for EPiServer CMS. It allows to add comments on CMS pages using blocks, dynamic content and by placing discussions in rendering areas.</releaseNotes>
+    <releaseNotes>Disqus integration for EPiServer CMS. This core module enables adding Disqus comments on CMS pages using content properties, blocks, dynamic content and by placing discussions in rendering areas. User interface to configure Disqus comments can be added on website by installing $id$.UI module.</releaseNotes>
     <copyright>Dmytro Duk</copyright>
     <tags>EPiServerPublicModulePackage ThirdPartyAddOn Disqus Comments Social</tags>
     <dependencies>
-      <dependency id="EPiServer" version="[7.5,8.0)" />
-      <dependency id="EPiServer.Shell" version="[7.5,8.0)" />
-      <dependency id="EPiServer.Packaging" version="[3.0,4.0)" />
+      <dependency id="EPiServer.CMS.Core" version="[8,9)" />
+      <dependency id="EPiServer.Framework" version="[8,9)" />
+      <dependency id="EPiServer.Packaging" version="[3.2.1,4.0)" />
     </dependencies>
   </metadata>
 </package>
