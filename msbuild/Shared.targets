@@ -14,7 +14,7 @@
 
   <Target Name="CreateAddOnPackage">
     <MakeDir Condition="!Exists('$(AddOnPackagesDirectory)')" Directories="$(AddOnPackagesDirectory)" />
-    <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -Properties Configuration=$(Configuration) -OutputDirectory &quot;$(AddOnPackagesDirectory)&quot;" Condition="Exists('$(NuGetExePath)')" Condition="'$(IsTravisBuild)' == 'false'" />
+    <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -Properties Configuration=$(Configuration) -OutputDirectory &quot;$(AddOnPackagesDirectory)&quot;" Condition="(Exists('$(NuGetExePath)')) and ('$(IsTravisBuild)' == 'false')" />
   </Target>
 
   <Target Name="CopyOnTestSites">
