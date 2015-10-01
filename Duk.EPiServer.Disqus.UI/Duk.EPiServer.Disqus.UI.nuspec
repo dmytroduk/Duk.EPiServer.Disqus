@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <id>Duk.EPiServer.Disqus.UI</id>
+    <version>1.3.0</version>
+    <title>Disqus comments configuration UI</title>
+    <authors>Dmytro Duk</authors>
+    <owners>Dmytro Duk</owners>
     <projectUrl>http://dmytroduk.com/projects/disqus-for-episerver</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/dmytroduk/Duk.EPiServer.Disqus/master/msbuild/Tools/icon.png</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -22,8 +22,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\$id$.dll" target="lib\net45" />
-    <file src="ClientResources\**\*.*" target="content\modules\_protected\$id$\ClientResources" />
-    <file src="module.config" target="content\modules\_protected\$id$" />
+    <file src="bin\Release\Duk.EPiServer.Disqus.UI.dll" target="lib\net45" />
+    <file src="ClientResources\**\*.*" target="content\modules\_protected\Duk.EPiServer.Disqus.UI\ClientResources" />
+    <file src="module.config" target="content\modules\_protected\Duk.EPiServer.Disqus.UI" />
   </files>
 </package>
