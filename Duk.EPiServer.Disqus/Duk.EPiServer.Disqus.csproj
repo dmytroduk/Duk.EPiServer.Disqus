@@ -185,7 +185,6 @@
     <Compile Include="Models\CommentsBlock.cs" />
     <Compile Include="CommentsControl.cs" />
     <Compile Include="CommentsDynamicContent.cs" />
-    <Compile Include="Models\DisqusIconAttribute.cs" />
     <Compile Include="Models\ICodeBuilder.cs" />
     <Compile Include="Models\Configuration\IConfigurationProvider.cs" />
     <Compile Include="Models\Context\IContext.cs" />

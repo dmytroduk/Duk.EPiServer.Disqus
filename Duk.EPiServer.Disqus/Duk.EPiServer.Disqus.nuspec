@@ -23,5 +23,6 @@
   <files>
     <file src="bin\Release\$id$.dll" target="lib\net45" />
     <file src="module.config" target="content\modules\$id$" />
+    <file src="ClientResources\DisqusBlockIcon.png" target="content\modules\$id$\ClientResources\DisqusBlockIcon.png" />
   </files>
 </package>
