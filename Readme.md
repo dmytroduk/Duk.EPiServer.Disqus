@@ -1,5 +1,7 @@
 Disqus for EPiServer
 =====================================
+[![Build Status](https://travis-ci.org/dmytroduk/Duk.EPiServer.Disqus.svg)](https://travis-ci.org/dmytroduk/Duk.EPiServer.Disqus)
+
 [Disqus for EPiServer](http://dmytroduk.com/projects/disqus-for-episerver) is [Disqus platform](http://disqus.com/for-websites/) integration for [EPiServer](http://episerver.com) based websites. It consists of several add-ons which enable Disqus comments on pages and provide user interface for configuration.
 
 Please refer documentation on the [project page](http://dmytroduk.com/projects/disqus-for-episerver) for more information about add-ons installation, discussion settings and how Disqus comments can be added on pages.
