@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Duk.EPiServer.Disqus.UI</id>
+    <version>1.3.0</version>
+    <title>Disqus comments configuration UI</title>
+    <authors>Dmytro Duk</authors>
+    <owners>Dmytro Duk</owners>
+    <projectUrl>http://dmytroduk.com/projects/disqus-for-episerver</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/dmytroduk/Duk.EPiServer.Disqus/master/msbuild/Tools/icon.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/dmytroduk/Duk.EPiServer.Disqus/blob/master/License.md</licenseUrl>    
+    <description>User interface to configure Disqus comments on EPiServer-based websites.</description>
+    <releaseNotes>Built for EPiServer CMS 9.</releaseNotes>
+    <copyright>Dmytro Duk</copyright>
+    <tags>EPiServerModulePackage ThirdPartyAddOn Disqus Comments Social UI</tags>
+    <dependencies>
+      <dependency id="EPiServer.CMS.Core" version="[9,10)" />
+      <dependency id="EPiServer.Framework" version="[9,10)" />
+      <dependency id="Duk.EPiServer.Disqus" version="[1.3,2.0)" />
+      <dependency id="EPiServer.Packaging" version="[3.2.1,4.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Duk.EPiServer.Disqus.UI\bin\Release\Duk.EPiServer.Disqus.UI.dll" target="lib\net45" />
+    <file src="..\Duk.EPiServer.Disqus.UI\ClientResources\**\*.*" target="content\modules\_protected\Duk.EPiServer.Disqus.UI\ClientResources" />
+    <file src="..\Duk.EPiServer.Disqus.UI\module.config" target="content\modules\_protected\Duk.EPiServer.Disqus.UI" />
+  </files>
+</package>

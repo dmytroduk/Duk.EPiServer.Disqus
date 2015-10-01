@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Duk.EPiServer.Disqus</id>
+    <version>1.3.0</version>
+    <title>Disqus comments for EPiServer CMS</title>
+    <authors>Dmytro Duk</authors>
+    <owners>Dmytro Duk</owners>
+    <projectUrl>http://dmytroduk.com/projects/disqus-for-episerver</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/dmytroduk/Duk.EPiServer.Disqus/master/msbuild/Tools/icon.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/dmytroduk/Duk.EPiServer.Disqus/blob/master/License.md</licenseUrl>
+    <description>Disqus integration for EPiServer-based websites. This core module enables adding Disqus comments on CMS pages using content properties, blocks, dynamic content and by placing discussions in rendering areas. User interface to configure Disqus comments can be added on website by installing Duk.EPiServer.Disqus.UI module.</description>
+    <releaseNotes>Built for EPiServer CMS 9.</releaseNotes>
+    <copyright>Dmytro Duk</copyright>
+    <tags>EPiServerPublicModulePackage ThirdPartyAddOn Disqus Comments Social</tags>
+    <dependencies>
+      <dependency id="EPiServer.CMS.Core" version="[9,10)" />
+      <dependency id="EPiServer.Framework" version="[9,10)" />
+      <dependency id="EPiServer.Packaging" version="[3.2.1,4.0)" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\Duk.EPiServer.Disqus\bin\Release\Duk.EPiServer.Disqus.dll" target="lib\net45" />
+    <file src="..\Duk.EPiServer.Disqus\module.config" target="content\modules\Duk.EPiServer.Disqus" />
+    <file src="..\Duk.EPiServer.Disqus\ClientResources\DisqusBlockIcon.png" target="content\modules\Duk.EPiServer.Disqus\ClientResources\DisqusBlockIcon.png" />
+  </files>
+</package>

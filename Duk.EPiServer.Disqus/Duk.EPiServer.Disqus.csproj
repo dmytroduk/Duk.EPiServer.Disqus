@@ -199,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ClientResources\DisqusBlockIcon.png" />
+    <None Include="Duk.EPiServer.Disqus.travis.nuspec">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Duk.EPiServer.Disqus.nuspec">
       <SubType>Designer</SubType>
     </None>
@@ -218,8 +221,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
-    <CallTarget Targets="CreateAddOnPackage" Condition="'$(IsTravisBuild)' != 'true'"/>
-    <CallTarget Targets="CopyOnTestSites" Condition="'$(IsTravisBuild)' != 'true'"/>
+    <CallTarget Targets="CreateAddOnPackage" />
+    <CallTarget Targets="CopyOnTestSites" />
   </Target>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
