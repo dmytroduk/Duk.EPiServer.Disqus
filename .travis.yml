@@ -1,2 +1,6 @@
 language: csharp
 solution: Duk.EPiServer.Disqus.sln
+script:
+  - xbuild /p:Configuration=Release;IsTravisBuild=true Duk.EPiServer.Disqus.sln
+  - mono ./.nuget\NuGet.exe pack ./Duk.EPiServer.Disqus/Duk.EPiServer.Disqus.csproj  -Properties Configuration=Release -OutputDirectory ./packages.addons
+  - mono ./.nuget\NuGet.exe pack ./Duk.EPiServer.Disqus.UI/Duk.EPiServer.Disqus.UI.csproj  -Properties Configuration=Release -OutputDirectory ./packages.addons
