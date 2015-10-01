@@ -12,7 +12,7 @@
   <ItemGroup>
   </ItemGroup>
 
-  <Target Name="CreateAddOnPackage" Condition="'$(IsTravisBuild)' != 'true'">
+  <Target Name="CreateAddOnPackage">
     <MakeDir Condition="!Exists('$(AddOnPackagesDirectory)')" Directories="$(AddOnPackagesDirectory)" />
     <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -Properties Configuration=$(Configuration) -OutputDirectory &quot;$(AddOnPackagesDirectory)&quot;" Condition="Exists('$(NuGetExePath)')" />
   </Target>
