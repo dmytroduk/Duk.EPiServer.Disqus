@@ -186,9 +186,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Duk.EPiServer.Disqus.UI.travis.nuspec">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Duk.EPiServer.Disqus.UI.nuspec">
       <SubType>Designer</SubType>
     </None>

@@ -199,9 +199,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ClientResources\DisqusBlockIcon.png" />
-    <None Include="Duk.EPiServer.Disqus.travis.nuspec">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Duk.EPiServer.Disqus.nuspec">
       <SubType>Designer</SubType>
     </None>

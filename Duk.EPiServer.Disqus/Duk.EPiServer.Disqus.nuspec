@@ -21,8 +21,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\Duk.EPiServer.Disqus.dll" target="lib\net45" />
+    <file src="bin/Release/Duk.EPiServer.Disqus.dll" target="lib\net45" />
     <file src="module.config" target="content\modules\Duk.EPiServer.Disqus" />
-    <file src="ClientResources\DisqusBlockIcon.png" target="content\modules\Duk.EPiServer.Disqus\ClientResources\DisqusBlockIcon.png" />
+    <file src="ClientResources/DisqusBlockIcon.png" target="content\modules\Duk.EPiServer.Disqus\ClientResources\DisqusBlockIcon.png" />
   </files>
 </package>
