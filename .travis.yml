@@ -2,5 +2,9 @@ language: csharp
 solution: Duk.EPiServer.Disqus.sln
 script:
   - xbuild /p:Configuration=Release;IsTravisBuild=true Duk.EPiServer.Disqus.sln
+  - pushd ./Duk.EPiServer.Disqus
   - mono ./.nuget/NuGet.exe pack ./Duk.EPiServer.Disqus/Duk.EPiServer.Disqus.nuspec  -Properties Configuration=Release -OutputDirectory ./packages.addons
+  - popd 
+  - pushd ./Duk.EPiServer.Disqus.UI
   - mono ./.nuget/NuGet.exe pack ./Duk.EPiServer.Disqus.UI/Duk.EPiServer.Disqus.UI.nuspec  -Properties Configuration=Release -OutputDirectory ./packages.addons
+  - popd
