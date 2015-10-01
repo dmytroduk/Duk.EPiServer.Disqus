@@ -7,7 +7,7 @@ Please refer documentation on the [project page](http://dmytroduk.com/projects/d
 Basic installation scenario
 ------------
 1.	Signup on [Disqus](https://disqus.com/admin/signup/) and choose a shortname for your site
-2.	Install add-ons on your site
+2.	Install add-ons on your site from Visual Studio or Add-on Store UI
 3.	Set shortname and enable discussions using Disqus configuration UI 
 4.	Start adding comments on pages
 
