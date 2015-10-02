@@ -23,7 +23,7 @@
   </metadata>
   <files>
     <file src="bin/Release/Duk.EPiServer.Disqus.UI.dll" target="lib\net45" />
-    <file src="ClientResources/**/*.*" target="content\modules\_protected\Duk.EPiServer.Disqus.UI\ClientResources" />
+    <file src="ClientResources/**/*.*" target="content\modules\_protected\Duk.EPiServer.Disqus.UI" />
     <file src="module.config" target="content\modules\_protected\Duk.EPiServer.Disqus.UI" />
   </files>
 </package>
