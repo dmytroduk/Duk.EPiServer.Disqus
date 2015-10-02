@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
-      <NuGetExePath>$(SolutionDir)\.nuget\NuGet.exe</NuGetExePath>
-      <AddOnPackagesDirectory>$(ProjectDir)..\packages.addons</AddOnPackagesDirectory>
+      <NuGetExePath>$(SolutionDir).nuget\NuGet.exe</NuGetExePath>
+      <AddOnPackagesDirectory>$(SolutionDir)packages.addons</AddOnPackagesDirectory>
 	  
-      <CopyCommandFilePath>..\msbuild\Tools\CopyOnSite.cmd</CopyCommandFilePath>	  
+      <CopyCommandFilePath>$(SolutionDir)msbuild\Tools\CopyOnSite.cmd</CopyCommandFilePath>	  
   </PropertyGroup>
 
   <ItemGroup>
   </ItemGroup>
 
-  <Target Name="CreateAddOnPackage">
+  <Target Name="CreateAddOnPackage" Condition="'$(BuildingInsideVisualStudio)' == 'true'">
     <MakeDir Condition="!Exists('$(AddOnPackagesDirectory)')" Directories="$(AddOnPackagesDirectory)" />
-    <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -Properties Configuration=$(Configuration) -OutputDirectory $(AddOnPackagesDirectory)" Condition="Exists('$(NuGetExePath)')" />
+    <Exec Command="&quot;$(NuGetExePath)&quot; pack $(ProjectFileName) -Properties Configuration=$(Configuration) -OutputDirectory &quot;$(AddOnPackagesDirectory)&quot;" Condition="Exists('$(NuGetExePath)')" />
   </Target>
 
   <Target Name="CopyOnTestSites">

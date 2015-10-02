@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.IO;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -11,7 +12,7 @@ namespace Duk.EPiServer.Disqus.Models
     [ContentType(GUID = "1B9D9094-F895-41A6-B986-E5E40FC6DEE7", 
         DisplayName = "Disqus comments",
         Description = "Allows to add Disqus comments on a page.")]
-    [DisqusIcon]
+    [ImageUrl("ClientResources/DisqusBlockIcon.png")]
     public class CommentsBlock : BlockData
     {
         /// <summary>
