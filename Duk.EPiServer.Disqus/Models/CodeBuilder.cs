@@ -18,9 +18,13 @@ namespace Duk.EPiServer.Disqus.Models
 
         const string LoaderScriptTemplate = @"${Parameters}
             (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                if($('#disqus_thread').length) {
+                    var dsq = document.createElement('script'); 
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                }
             })();";
 
         private const string ThreadTemplate = "<div id=\"disqus_thread\"></div>";
@@ -41,7 +45,7 @@ namespace Duk.EPiServer.Disqus.Models
             AddParameter(context.Url, UrlParameterTemplate, ref parameters);
             AddParameter(context.Title, TitleParameterTemplate, ref parameters);
             AddParameter(context.CategoryId, CategoryIdParameterTemplate, ref parameters);
-            return LoaderScriptTemplate.Replace("${Parameters}", parameters.ToString());            
+            return LoaderScriptTemplate.Replace("${Parameters}", parameters.ToString());
         }
 
         /// <summary>
