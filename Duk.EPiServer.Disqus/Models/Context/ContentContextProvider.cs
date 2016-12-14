@@ -1,31 +1,31 @@
 ﻿using System;
 using EPiServer;
-using EPiServer.Configuration;
 using EPiServer.Core;
 using EPiServer.Editor;
 using EPiServer.Web;
 using EPiServer.Web.Routing;
-using EPiServer.Web.Routing.Segments;
+using EPiServer.Web.Routing.Segments.Internal;
 
 namespace Duk.EPiServer.Disqus.Models.Context
 {
     /// <summary>
-    /// Default context provider, returns context data based on a current CMS page
+    ///     Default context provider, returns context data based on a current CMS page
     /// </summary>
     public class ContentContextProvider : IContextProvider
     {
-        private readonly PageRouteHelper _pageRouteHelper;
-        private readonly IEnterpriseSettings _enterpriseSettings;
-        private readonly UrlResolver _urlResolver;
         private readonly Lazy<IContext> _currentContext;
+        private readonly IEnterpriseSettings _enterpriseSettings;
+        private readonly IPageRouteHelper _pageRouteHelper;
+        private readonly UrlResolver _urlResolver;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContentContextProvider" /> class.
+        ///     Initializes a new instance of the <see cref="ContentContextProvider" /> class.
         /// </summary>
         /// <param name="pageRouteHelper">The page route helper.</param>
         /// <param name="urlResolver">The URL resolver.</param>
         /// <param name="enterpriseSettings">The enterprise settings.</param>
-        public ContentContextProvider(PageRouteHelper pageRouteHelper, UrlResolver urlResolver, IEnterpriseSettings enterpriseSettings)
+        public ContentContextProvider(IPageRouteHelper pageRouteHelper, UrlResolver urlResolver,
+            IEnterpriseSettings enterpriseSettings)
         {
             _pageRouteHelper = pageRouteHelper;
             _urlResolver = urlResolver;
@@ -34,7 +34,7 @@ namespace Duk.EPiServer.Disqus.Models.Context
         }
 
         /// <summary>
-        /// Gets the current context.
+        ///     Gets the current context.
         /// </summary>
         /// <returns></returns>
         public IContext GetContext()
@@ -43,7 +43,7 @@ namespace Duk.EPiServer.Disqus.Models.Context
         }
 
         /// <summary>
-        /// Gets the context information specific for the current CMS page.
+        ///     Gets the context information specific for the current CMS page.
         /// </summary>
         /// <returns></returns>
         private ContentContext GetContextInternal()
@@ -53,16 +53,13 @@ namespace Duk.EPiServer.Disqus.Models.Context
                 IsInEditMode = PageEditing.PageIsInEditMode,
                 IsInPreviewMode = RequestSegmentContext.CurrentContextMode == ContextMode.Preview
             };
-            
-            Settings siteSettings;
+
 
             if (_pageRouteHelper.Page != null)
             {
                 context.Identifier = _pageRouteHelper.Page.ContentGuid.ToString();
 
                 context.IsAvailableOnSite = IsAvailableOnSite(_pageRouteHelper.Page);
-
-                siteSettings = _enterpriseSettings.GetSettingsFromContent(_pageRouteHelper.Page.PageLink, true);
 
                 if (context.IsAvailableOnSite && !string.IsNullOrWhiteSpace(context.SiteUrl))
                 {
@@ -73,20 +70,19 @@ namespace Duk.EPiServer.Disqus.Models.Context
             else
             {
                 context.IsAvailableOnSite = false;
-                siteSettings = Settings.Instance;
             }
 
-            context.SiteUrl = siteSettings != null ? siteSettings.SiteUrl.ToString() : null;
+            context.SiteUrl = SiteDefinition.Current?.SiteUrl.ToString();
 
             return context;
         }
 
         /// <summary>
-        /// Determines whether the page is available on site.
+        ///     Determines whether the page is available on site.
         /// </summary>
         /// <param name="pageData">The page data.</param>
         /// <returns>
-        ///   <c>true</c> if the page is available on site; otherwise, <c>false</c>.
+        ///     <c>true</c> if the page is available on site; otherwise, <c>false</c>.
         /// </returns>
         private static bool IsAvailableOnSite(PageData pageData)
         {
@@ -97,7 +93,7 @@ namespace Duk.EPiServer.Disqus.Models.Context
         }
 
         /// <summary>
-        /// Creates the external page URL.
+        ///     Creates the external page URL.
         /// </summary>
         /// <param name="pageData">The page data.</param>
         /// <param name="siteUrl">The site URL.</param>
