@@ -57,7 +57,7 @@ namespace Duk.EPiServer.Disqus.UI.CompositeViews
             {
                 if (_rootContainer == null)
                 {
-                    var customContainer = new CustomContainer("duk-disqus.RootContainer");
+                    var customContainer = new CustomContainer("duk-disqus/RootContainer");
                     customContainer.Settings.Add("id", Name + "_rootContainer");
                     customContainer.Settings.Add("persist", "true"); //Persist window size on client
                     _rootContainer = customContainer;
