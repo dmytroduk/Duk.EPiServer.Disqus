@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using EPiServer.Data.Dynamic;
-using EPiServer.Shell.Composition;
 
 namespace Duk.EPiServer.Disqus.Models.Configuration
 {
@@ -28,7 +27,7 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
         public IConfiguration Load()
         {
             ConfigurationEntity settingsEntity;
-            using (var store = _storeFactory.GetOrCreateStore(typeof(ConfigurationEntity)))
+            using (var store = _storeFactory.GetStore(typeof(ConfigurationEntity)) ?? _storeFactory.CreateStore(typeof(ConfigurationEntity)))
             {
                 settingsEntity = store.Items<ConfigurationEntity>().FirstOrDefault();
             }
@@ -47,7 +46,7 @@ namespace Duk.EPiServer.Disqus.Models.Configuration
         /// <param name="configuration">The Disqus configuration.</param>
         public void Save(IConfiguration configuration)
         {
-            using (var store = _storeFactory.GetOrCreateStore(typeof(ConfigurationEntity)))
+            using (var store = _storeFactory.GetStore(typeof(ConfigurationEntity)) ?? _storeFactory.CreateStore(typeof(ConfigurationEntity)))
             {
                 var existingConfiguration = store.Items<ConfigurationEntity>().FirstOrDefault();
                 if (existingConfiguration != null)

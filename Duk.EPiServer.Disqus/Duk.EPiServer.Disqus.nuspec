@@ -15,8 +15,8 @@
     <copyright>Dmytro Duk</copyright>
     <tags>EPiServerPublicModulePackage ThirdPartyAddOn Disqus Comments Social</tags>
     <dependencies>
-      <dependency id="EPiServer.CMS.Core" version="[10,11)" />
-      <dependency id="EPiServer.Framework" version="[10,11)" />
+      <dependency id="EPiServer.CMS.Core" version="[10.0.1,11)" />
+      <dependency id="EPiServer.Framework" version="[10.0.1,11)" />
       <dependency id="EPiServer.Packaging" version="[3.2.1,4.0)" />
     </dependencies>
   </metadata>
