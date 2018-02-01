@@ -19,6 +19,7 @@
       <dependency id="EPiServer.CMS.Core" version="[11.1.0,12)" />
       <dependency id="EPiServer.Framework" version="[11.1.0,12)" />
       <dependency id="EPiServer.Packaging" version="[3.4.0,4.0)" />
+      <dependency id="EPiServer.CMS.UI.Core" version="[11.1.0,12)" />
     </dependencies>
   </metadata>
   <files>
