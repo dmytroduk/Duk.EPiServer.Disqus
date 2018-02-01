@@ -18,7 +18,7 @@ namespace Duk.EPiServer.Disqus.UI.Models
         /// <param name="context">The context.</param>
         public void ConfigureContainer(ServiceConfigurationContext context)
         {
-            context.Container.Configure(ce => ce.For<IRenderingEditModeExtension>().Use<RenderingEditModeExtension>());
+            context.StructureMap().Configure(ce => ce.For<IRenderingEditModeExtension>().Use<RenderingEditModeExtension>());
         }
 
         /// <summary>

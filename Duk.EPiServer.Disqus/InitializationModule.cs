@@ -19,7 +19,7 @@ namespace Duk.EPiServer.Disqus
         /// <param name="context">The context.</param>
         public void ConfigureContainer(ServiceConfigurationContext context)
         {
-            context.Container.Configure(ce =>
+            context.StructureMap().Configure(ce =>
             {
                 ce.For<IConfigurationProvider>().Use<DatabaseConfigurationProvider>();
                 ce.For<IContextProvider>().Use<ContentContextProvider>();
