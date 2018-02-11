@@ -105,10 +105,6 @@
       <HintPath>..\packages\EPiServer.Logging.Log4Net.2.2.0\lib\net461\EPiServer.Logging.Log4Net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EPiServer.ServiceLocation.StructureMap, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EPiServer.ServiceLocation.StructureMap.2.0.0\lib\net461\EPiServer.ServiceLocation.StructureMap.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="EPiServer.Shell, Version=11.1.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.UI.Core.11.1.0\lib\net461\EPiServer.Shell.dll</HintPath>
       <Private>True</Private>
@@ -135,14 +131,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="StructureMap, Version=4.5.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StructureMap.4.5.2\lib\net45\StructureMap.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\structuremap.web.4.0.0.315\lib\net40\StructureMap.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

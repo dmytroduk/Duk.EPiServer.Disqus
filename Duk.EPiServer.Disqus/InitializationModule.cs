@@ -19,13 +19,10 @@ namespace Duk.EPiServer.Disqus
         /// <param name="context">The context.</param>
         public void ConfigureContainer(ServiceConfigurationContext context)
         {
-            context.StructureMap().Configure(ce =>
-            {
-                ce.For<IConfigurationProvider>().Use<DatabaseConfigurationProvider>();
-                ce.For<IContextProvider>().Use<ContentContextProvider>();
-                ce.For<IRenderingService>().Use<RenderingService>();
-                ce.For<ICodeBuilder>().Use<CodeBuilder>();
-            });
+            context.Services.AddTransient<IConfigurationProvider, DatabaseConfigurationProvider>();
+            context.Services.AddTransient<IContextProvider, ContentContextProvider>();
+            context.Services.AddTransient<IRenderingService, RenderingService>();
+            context.Services.AddTransient<ICodeBuilder, CodeBuilder>();
         }
 
         /// <summary>
