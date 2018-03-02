@@ -9,8 +9,8 @@ namespace Duk.EPiServer.Disqus.UI.Models
     /// <summary>
     /// Registers client resources that are required to indicate Disqus threads in Edit UI.
     /// </summary>
-    [ClientResourceRegister]
-    public class EditModeClientResourceRegister : IClientResourceRegister
+    [ClientResourceRegistrator]
+    public class EditModeClientResourceRegister : IClientResourceRegistrator
     {
         private readonly LocalizationService _localizationService;
         private readonly IContextProvider _contextProvider;
@@ -32,8 +32,7 @@ namespace Duk.EPiServer.Disqus.UI.Models
         /// Registers the Disqus client resources to be rendered in defined areas.
         /// </summary>
         /// <param name="requiredResources">The required resources.</param>
-        /// <param name="context">The context.</param>
-        public void RegisterResources(IRequiredClientResourceList requiredResources, HttpContextBase context)
+        public void RegisterResources(IRequiredClientResourceList requiredResources)
         {
             var renderingContext = _contextProvider.GetContext();
 
@@ -58,7 +57,11 @@ namespace Duk.EPiServer.Disqus.UI.Models
             // Inject the following styles for Edit and Preview modes
             requiredResources.Require("duk-disqus.PreviewMode");
 
-            context.Items[ResourcesAreRegisteredKey] = true;
+            var httpContext = HttpContext.Current;
+            if (httpContext != null)
+            {
+                httpContext.Items[ResourcesAreRegisteredKey] = true;
+            }
         }
 
         /// <summary>

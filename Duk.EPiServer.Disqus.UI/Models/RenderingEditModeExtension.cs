@@ -44,7 +44,7 @@ namespace Duk.EPiServer.Disqus.UI.Models
             // Require scripts here. 
             // Styles should be require in client resource register to make sure that they are added in Header area before that area is rendered.
 
-            // HACK: Ugly fallback to register client resources (styles) if it was not registered using IClientResourceRegister.
+            // HACK: Ugly fallback to register client resources (styles) if it was not registered using IClientResourceRegistrator.
             // It may happen when templates don't meet the standard requirements for EPiServer CMS page templates 
             // and don't require/render client resources. For example: block preview template in Alloy.
             // Open question: Should we solve it here?
@@ -55,12 +55,10 @@ namespace Duk.EPiServer.Disqus.UI.Models
                 return;
             }
             // Fallback: register now
-            var register = ServiceLocator.Current.GetAllInstances<IClientResourceRegister>()
+            var register = ServiceLocator.Current.GetAllInstances<IClientResourceRegistrator>()
                 .FirstOrDefault(r => typeof (EditModeClientResourceRegister) == r.GetType());
-            if (register != null)
-            {
-                register.RegisterResources(requiredResources, _context);
-            }
+
+            register?.RegisterResources(requiredResources);
         }
 
         /// <summary>

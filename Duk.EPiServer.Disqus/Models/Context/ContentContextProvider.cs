@@ -14,7 +14,6 @@ namespace Duk.EPiServer.Disqus.Models.Context
     public class ContentContextProvider : IContextProvider
     {
         private readonly Lazy<IContext> _currentContext;
-        private readonly IEnterpriseSettings _enterpriseSettings;
         private readonly IPageRouteHelper _pageRouteHelper;
         private readonly UrlResolver _urlResolver;
 
@@ -24,12 +23,10 @@ namespace Duk.EPiServer.Disqus.Models.Context
         /// <param name="pageRouteHelper">The page route helper.</param>
         /// <param name="urlResolver">The URL resolver.</param>
         /// <param name="enterpriseSettings">The enterprise settings.</param>
-        public ContentContextProvider(IPageRouteHelper pageRouteHelper, UrlResolver urlResolver,
-            IEnterpriseSettings enterpriseSettings)
+        public ContentContextProvider(IPageRouteHelper pageRouteHelper, UrlResolver urlResolver)
         {
             _pageRouteHelper = pageRouteHelper;
             _urlResolver = urlResolver;
-            _enterpriseSettings = enterpriseSettings;
             _currentContext = new Lazy<IContext>(GetContextInternal);
         }
 
@@ -101,7 +98,7 @@ namespace Duk.EPiServer.Disqus.Models.Context
         private string CreateExternalUrl(PageData pageData, string siteUrl)
         {
             // TODO: always resolve path in view mode
-            var pagePath = _urlResolver.GetVirtualPath(pageData.PageLink, pageData.LanguageID).VirtualPath;
+            var pagePath = _urlResolver.GetVirtualPath(pageData.PageLink, (pageData as ILocalizable).Language.Name).VirtualPath;
             var pagePathUrlBuilder = new UrlBuilder(pagePath);
 
             var uriBuilder = new UrlBuilder(siteUrl)
